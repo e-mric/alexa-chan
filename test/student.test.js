@@ -23,3 +23,23 @@ test('student interface copy exists consistently in every starting language', as
     assert.ok(Object.values(studentCopy[locale]).every(text => typeof text === 'string' && text.length));
   }
 });
+
+test('student MCP storage preflight never touches the parked profile namespace', async () => {
+  const { createFoundersClient, JUDGE_KEY, STUDENT_JUDGE_KEY } = await import('../web/src/lib/founders-mcp.js');
+  const values = new Map([[JUDGE_KEY, 'parked profile'], [`${JUDGE_KEY}:check`, 'existing value']]);
+  const reads = [], writes = [], removals = [];
+  const storage = {
+    getItem: key => { reads.push(key); return values.get(key) || null; },
+    setItem: (key, value) => { writes.push(key); values.set(key, value); },
+    removeItem: key => { removals.push(key); values.delete(key); }
+  };
+  const client = createFoundersClient({ baseUrl: 'http://127.0.0.1:3001', storage, storageKey: STUDENT_JUDGE_KEY,
+    fetcher: async () => new Response('{}', { status: 503 }) });
+  await assert.rejects(client.connect(), /Cannot create a judge profile/);
+  assert.deepEqual(reads, [STUDENT_JUDGE_KEY]);
+  assert.deepEqual(writes, [`${STUDENT_JUDGE_KEY}:check`]);
+  assert.deepEqual(removals, [`${STUDENT_JUDGE_KEY}:check`]);
+  assert.equal(values.get(JUDGE_KEY), 'parked profile');
+  assert.equal(values.get(`${JUDGE_KEY}:check`), 'existing value');
+  await client.close();
+});

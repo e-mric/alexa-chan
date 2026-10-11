@@ -34,7 +34,7 @@ export function createFoundersClient({ baseUrl, storage, fetcher = fetch, onTrac
       if (token && !/^[a-f0-9]{64}$/.test(token)) throw Error('The local judge profile key is invalid. Your personal journey is unchanged.');
       if (!token) {
         // Read/write storage before creating a profile, so blocked storage fails clearly.
-        storage.setItem(`${JUDGE_KEY}:check`, '1'); storage.removeItem(`${JUDGE_KEY}:check`);
+        storage.setItem(`${storageKey}:check`, '1'); storage.removeItem(`${storageKey}:check`);
         const response = await fetcher(new URL('/mcp/profile', baseUrl), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}', signal: AbortSignal.timeout(10000) });
         if (!response.ok) throw Error('Cannot create a judge profile. Start the MCP server and try again.');
         const profile = await response.json();

@@ -26,9 +26,9 @@ the owner must confirm applicable generated-art usage entitlement before publica
 
 ## Verification receipts
 
-- Full development regression: **61 passed**, zero Svelte errors/warnings,
+- Full development regression: **62 passed**, zero Svelte errors/warnings,
   successful production build.
-- Clean judging copy: clean npm installs, **57 passed, four skipped** (only
+- Clean judging copy: clean npm installs, **58 passed, four skipped** (only
   recording-catalogue checks, because recordings are deliberately absent), zero
   Svelte errors/warnings, production build succeeded. Speech behaviour still tested.
 - Both `npm audit --omit=dev` at root and `npm --prefix web audit` report zero
@@ -54,6 +54,21 @@ the owner must confirm applicable generated-art usage entitlement before publica
 The build warns about the large Three.js bundle and dependency annotations.
 Physical mobile-device/accessibility assessment, native-speaker review and real
 learning outcomes remain unverified. This is a loopback pilot, not a hosted SaaS.
+
+## Source delivery notes
+
+The source checkout was committed locally using a Git implementation that does
+not require Xcode. Native Git is blocked by an unaccepted Xcode licence, and no
+reusable GitLab credential was available; **the latest source has not been pushed
+to GitLab**. No licence agreement was accepted on the owner's behalf. Both private
+GitHub destinations are maintained separately; the judging copy omits provider
+audio and private data. Verify their automated checks before sharing.
+
+The first clean distribution commit was `288f912ff6abe3e58046b73f03ee5870d5d21791`;
+[its Linux CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/38184555551),
+including tests, Svelte diagnostics, build and both audits. Later hardening adds
+the student-only storage preflight regression; current results are listed above.
+[Latest distribution checks](https://github.com/e-mric/alexa-chan-submission/actions).
 
 ## Official hackathon requirements
 
