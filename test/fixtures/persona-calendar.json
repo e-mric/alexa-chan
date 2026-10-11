@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "timezone": "Europe/Brussels",
+  "capturedOn": "2026-10-11",
+  "coverage": { "from": "2026-10-11", "to": "2026-10-18" },
+  "sourceUrl": "https://example.notion.site/synthetic-calendar",
+  "events": [
+    {
+      "id": "synthetic-coaching",
+      "title": "Presentation practice · fictional university session",
+      "date": "2026-10-11",
+      "startTime": "09:30",
+      "endTime": "11:00",
+      "attendance": "mandatory",
+      "kind": "workshop",
+      "location": "Example seminar room",
+      "description": "Synthetic fixture only: prepare one question about explaining your research.",
+      "phase": "Example semester",
+      "url": "https://example.notion.site/synthetic-coaching"
+    },
+    {
+      "id": "synthetic-interviews",
+      "title": "Research methods seminar · fictional university session",
+      "date": "2026-10-12",
+      "startTime": null,
+      "endTime": null,
+      "attendance": "optional",
+      "kind": "workshop",
+      "location": "",
+      "description": "Synthetic fixture only: listen before suggesting a solution.",
+      "phase": "Example semester",
+      "url": "https://example.notion.site/synthetic-interviews"
+    }
+  ]
+}

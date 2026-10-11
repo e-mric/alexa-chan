@@ -1,0 +1,25 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "quest mode",
+      "intents": [
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] },
+        { "name": "ScheduleTodayIntent", "samples": ["quels sont mes rendez vous aujourd'hui", "quel est mon programme aujourd'hui", "mon agenda", "mes événements du jour"] },
+        { "name": "ScheduleTomorrowIntent", "samples": ["quels sont mes rendez vous demain", "quel est mon programme demain", "mon agenda de demain"] },
+        { "name": "JapaneseScheduleTodayIntent", "samples": ["kyo no yotei wa", "kio no yoté oua"] },
+        { "name": "JapaneseScheduleTomorrowIntent", "samples": ["ashita no yotei wa", "achita no yoté oua"] },
+        { "name": "WeatherIntent", "slots": [{ "name": "city", "type": "AMAZON.City" }], "samples": ["quelle est la météo", "quel temps fait il aujourd'hui", "donne moi la météo", "quel temps fait il à {city}", "la météo à {city}"] },
+        { "name": "JapaneseWeatherIntent", "samples": ["kyo no tenki wa", "kio no tenki oua", "kyô no tenki wa"] },
+        { "name": "TranslateIntent", "samples": ["ike", "iké", "traduis", "donne moi la traduction", "ça veut dire quoi"] },
+        { "name": "ExplainIntent", "samples": ["motto", "explique davantage", "explique en détail"] },
+        { "name": "TeachQuestionIntent", "samples": ["nante", "nanté", "comment je demande ça en japonais", "comment demander la météo en japonais"] },
+        { "name": "StartQuestIntent", "samples": ["propose une quête", "je veux une quête", "commence la quête"] },
+        { "name": "StatusIntent", "samples": ["quelle est ma quête", "ma progression"] }
+      ],
+      "types": []
+    }
+  }
+}

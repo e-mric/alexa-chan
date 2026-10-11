@@ -1,0 +1,104 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "quest mode",
+      "intents": [
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] },
+        {
+          "name": "WeatherIntent",
+          "slots": [{ "name": "city", "type": "AMAZON.City" }],
+          "samples": [
+            "what's the weather",
+            "what is the weather today",
+            "morning briefing",
+            "give me the morning briefing",
+            "what's the weather in {city}",
+            "weather in {city}",
+            "how is the weather"
+          ]
+        },
+        {
+          "name": "StartQuestIntent",
+          "slots": [{ "name": "quest", "type": "AMAZON.SearchQuery" }],
+          "samples": [
+            "start a quest",
+            "new quest",
+            "start a quest to {quest}",
+            "add a quest called {quest}",
+            "give me a quest"
+          ]
+        },
+        {
+          "name": "CompleteQuestIntent",
+          "slots": [],
+          "samples": [
+            "quest complete",
+            "i finished my quest",
+            "complete the quest",
+            "i did it",
+            "mission accomplished",
+            "training complete",
+            "i finished training"
+          ]
+        },
+        {
+          "name": "TrainingTimerIntent",
+          "slots": [{ "name": "minutes", "type": "AMAZON.NUMBER" }],
+          "samples": [
+            "start a training session",
+            "start a {minutes} minute training session",
+            "training timer for {minutes} minutes",
+            "begin training",
+            "start training for {minutes} minutes"
+          ]
+        },
+        {
+          "name": "PhraseIntent",
+          "slots": [],
+          "samples": [
+            "phrase of the day",
+            "what's the phrase of power",
+            "teach me the phrase of the day",
+            "teach me japanese",
+            "phrase of power"
+          ]
+        },
+        {
+          "name": "SetModeIntent",
+          "slots": [{ "name": "mode", "type": "QuestModeType" }],
+          "samples": [
+            "switch to {mode} mode",
+            "set mode to {mode}",
+            "{mode} mode",
+            "change mode to {mode}"
+          ]
+        },
+        {
+          "name": "StatusIntent",
+          "slots": [],
+          "samples": [
+            "hero status",
+            "what's my status",
+            "what level am i",
+            "how much experience do i have",
+            "status report"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "QuestModeType",
+          "values": [
+            { "name": { "value": "calm" } },
+            { "name": { "value": "hero" } },
+            { "name": { "value": "training" } },
+            { "name": { "value": "immersion" } }
+          ]
+        }
+      ]
+    }
+  }
+}

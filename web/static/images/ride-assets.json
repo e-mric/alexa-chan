@@ -1,0 +1,17 @@
+{
+  "generator": "Built-in GPT image generation",
+  "created": "2026-10-06",
+  "assets": [
+    {
+      "file": "ride-fuji.png",
+      "role": "Static illustrated horizon behind the Three.js road",
+      "prompt": "Create a landscape 16:9 background plate for a Japanese cyberpunk driving web experience. Detailed hand-painted 1980s anime cinematic background. Snow-capped Mount Fuji exactly centered on horizon, giant vermilion sun behind it, warm cream clouds, steel blue sky. Futuristic intricate dense Japanese city clustered on the LEFT and RIGHT edges framing a clear open central corridor. City occupies lower half, mountain peak at 38% from top. No road in foreground: lower quarter atmospheric dark blue city haze to blend with a separately rendered road. No people, no motorcycle, no vehicles, no UI, no text, no watermarks. Scarlet accents, ivory sunlight, worn industrial blue towers, sophisticated ink linework and cel shading. Static horizon panorama, viewed from an elevated highway. Rich detailed illustration, no purple neon."
+    },
+    {
+      "file": "ride-rider.png",
+      "role": "Transparent illustrated rider overlay, not an animated 3D character",
+      "initial_prompt": "Create a transparent-background game sprite: full adult woman rider on scarlet futuristic sports motorcycle, viewed FROM BEHIND slightly from left, driving away toward center horizon. Whole rider AND entire motorcycle and tires visible, centered with generous transparent margin, isolated no ground no scenery no shadow plane no text. Thick broad rear black tire at lower center, luminous red horizontal taillight, chunky red aerodynamic fairings, black mechanical details, woman wearing red jacket, dark trousers, black ponytail flowing left, hands on handlebars, boots on footrests. Rear three-quarter view emphasizes back not face. Hand-painted 1980s Japanese cyberpunk anime ink linework and cel shading, realistic proportions, weathered scarlet metal, soft warm sunlight from front right. Portrait composition, crisp alpha cutout suitable for compositing over a road.",
+      "edit_prompt": "Edit this rider sprite. Preserve the same motorcycle and adult woman rider, rear three-quarter composition, red jacket, ponytail, painted anime style and complete silhouette. Add one large clearly written ivory Japanese kanji '旅' centered on the upper back of her jacket; it means journey. Add smaller exact ivory '一歩' on the visible red side fairing of the motorcycle. No other text. Critically remove ALL background, black backdrop and colored ambient glow outside the rider silhouette: output a genuinely transparent alpha cutout with zero-opacity pixels outside the rider and motorcycle, no floor or background or rectangular glow. Keep whole silhouette within frame."
+    }
+  ]
+}

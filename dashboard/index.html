@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quest Mode</title>
+<style>
+  :root {
+    --bg: #0d0a1a;
+    --panel: #171230;
+    --panel2: #1f1840;
+    --accent: #ff4d6d;
+    --accent2: #ffd166;
+    --jp: #7cf5ff;
+    --text: #f2ecff;
+    --muted: #9a8fc4;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: radial-gradient(1200px 600px at 70% -10%, #2a1b5e 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+  h1 {
+    font-size: 2.2rem; font-weight: 800; letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-transform: uppercase; font-style: italic;
+  }
+  .sub { color: var(--jp); font-size: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+  .card {
+    background: linear-gradient(160deg, var(--panel2), var(--panel));
+    border: 1px solid #2e2456; border-radius: 14px; padding: 18px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  }
+  .card h2 {
+    font-size: .8rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  .hero-row { display: flex; align-items: center; gap: 16px; }
+  .level-badge {
+    width: 64px; height: 64px; border-radius: 50%; flex: none;
+    display: grid; place-items: center; font-weight: 800; font-size: 1.4rem;
+    background: conic-gradient(var(--accent) var(--pct, 0%), #352a63 0);
+    position: relative;
+  }
+  .level-badge::after {
+    content: attr(data-level); position: absolute; inset: 6px; border-radius: 50%;
+    background: var(--panel); display: grid; place-items: center;
+  }
+  .xpbar { height: 10px; border-radius: 6px; background: #352a63; overflow: hidden; margin-top: 8px; }
+  .xpbar > div { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .6s; }
+  .big { font-size: 1.3rem; font-weight: 700; }
+  .muted { color: var(--muted); font-size: .85rem; }
+  .potd .jp { font-size: 1.6rem; color: var(--jp); font-weight: 700; margin: 4px 0; }
+  ul { list-style: none; }
+  li { padding: 8px 10px; border-radius: 8px; margin-bottom: 6px; background: rgba(255,255,255,.04); display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .done { opacity: .5; text-decoration: line-through; }
+  .tag { font-size: .7rem; padding: 2px 8px; border-radius: 10px; background: var(--accent); color: #fff; flex: none; }
+  .tag.training { background: #4d7cff; }
+  .phrase-jp { color: var(--jp); font-weight: 700; }
+  .log li { display: block; font-size: .85rem; }
+  .log .xp { color: var(--accent2); }
+  .log .levelup { color: var(--accent); font-weight: 700; }
+  .log time { color: var(--muted); font-size: .7rem; display: block; }
+  .mode-pill {
+    display: inline-block; padding: 4px 14px; border-radius: 20px;
+    background: var(--accent); color: #fff; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; font-size: .8rem;
+  }
+  .empty { color: var(--muted); font-style: italic; }
+</style>
+<style>
+/* Manga mission board: concrete, signal red, ink and icy blue. */
+:root{--bg:#bacdd0;--panel:#eaece5;--panel2:#eaece5;--accent:#ca241d;--accent2:#ca241d;--jp:#172020;--text:#171c1c;--muted:#53605c}
+body{background:var(--bg);padding:24px;font-family:"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1360px;background:var(--panel);border:2px solid var(--text);box-shadow:8px 8px 0 #17202020}
+.topline{padding:14px 28px;display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid var(--text);font:11px/1.6 monospace;letter-spacing:1px;flex-wrap:wrap}
+header{margin:0;display:grid;grid-template-columns:1.2fr 1fr;gap:0;align-items:stretch;border-bottom:2px solid var(--text)}
+.intro{padding:36px}.eyebrow{font:11px/1.6 monospace;letter-spacing:1.6px}
+h1{font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(70px,9vw,126px);font-weight:900;letter-spacing:-3px;line-height:.85;background:none;color:var(--text);font-style:normal;margin:26px 0 22px}h1 span{display:block;color:var(--accent)}
+.sub{color:var(--text);font-size:18px;font-weight:800;letter-spacing:3px}.intro p{margin-top:18px;font-size:14px;line-height:1.6}
+.poster{position:relative;overflow:hidden;isolation:isolate;background:#b8d9df;border-left:2px solid var(--text);min-height:350px}.poster:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 57px,#17232212 58px 59px),repeating-linear-gradient(0deg,transparent 0 57px,#17232212 58px 59px);z-index:-1}.sun{position:absolute;width:230px;height:230px;background:var(--accent);border-radius:50%;top:35px;left:calc(50% - 115px)}.road{position:absolute;background:#e3e7df;width:160%;height:200px;bottom:-65px;left:-30%;transform:rotate(-32deg);border-block:2px solid var(--text);box-shadow:0 -10px 0 #eaece570}.road:after{content:"";position:absolute;inset:95px 0 auto;border-top:4px dashed #9aa6a1}.poster-word{position:absolute;left:24px;top:100px;font-size:clamp(65px,8vw,112px);font-weight:1000;font-style:italic;letter-spacing:-9px;color:var(--panel);text-shadow:5px 5px 0 var(--text);transform:rotate(-9deg)}.poster-code{position:absolute;bottom:22px;left:24px;font:11px/1.7 monospace;letter-spacing:2px}.poster-stamp{position:absolute;right:18px;top:18px;writing-mode:vertical-rl;font:12px/1.5 monospace;letter-spacing:4px}
+.grid{grid-template-columns:1fr 1fr;gap:0}.card{background:var(--panel);border:0;border-bottom:1px solid var(--text);border-radius:0;padding:28px 32px;box-shadow:none;min-width:0}.card:nth-child(even){border-right:1px solid var(--text)}.card h2{font:11px/1.6 monospace;letter-spacing:1.8px;color:var(--muted);margin-bottom:22px}.card.hero-card{grid-column:1/-1;background:var(--text);color:var(--panel);padding:22px 32px}.hero-card h2{color:#b8d9df;margin-bottom:14px}.hero-card .muted{color:#c3cec8}.hero-row{gap:24px}.big{font-size:25px;overflow-wrap:anywhere}.level-badge{width:65px;height:65px;background:none;font:54px/1 Impact,sans-serif;color:#b8d9df}.level-badge:after{inset:0;background:transparent;border-radius:0}.xpbar{background:#495851;height:6px;border-radius:0;margin-top:13px}.xpbar>div{background:var(--accent)}.mode-pill{background:none;color:#b8d9df;border:1px solid #738980;border-radius:0;font:11px/1.5 monospace;padding:2px 8px;margin-left:6px}.potd{background:#d3e3e2}.potd .jp{font-size:clamp(27px,3vw,43px);letter-spacing:-1px;margin:25px 0 14px;color:var(--text)}#potdRomaji{font-family:monospace;margin-bottom:10px}#potdEn{font-size:19px}ul{padding:0}li{background:none;border-radius:0;border-top:1px solid #a6b2ac;padding:16px 0;margin:0;overflow-wrap:anywhere}.tag{background:transparent;color:var(--text);border:1px solid var(--text);border-radius:0;font:10px/1.6 monospace;padding:3px 7px}.tag.training{background:#b8d9df}.done{opacity:1;color:var(--muted)}.phrase-jp{color:var(--text);font-size:19px}.muted{font-size:13px;line-height:1.6}.log .xp,.log .levelup{color:#a12019}.log time{margin-top:5px;font-family:monospace}.empty{font-style:normal;line-height:1.8}.voice-cue{font:11px/1.6 monospace;color:var(--muted);margin-top:22px}.board-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 28px;font:10px/1.6 monospace;letter-spacing:1px}.board-footer span:last-child{color:var(--accent);font-weight:bold}
+@media(max-width:720px){body{padding:10px}header{grid-template-columns:1fr}.intro{padding:28px}h1{font-size:90px}.poster{border-left:0;border-top:2px solid var(--text);min-height:250px}.sun{width:185px;height:185px;top:20px;left:calc(50% - 92px)}.poster-word{top:65px;font-size:85px;left:calc(50% - 130px)}.grid{grid-template-columns:1fr}.card:nth-child(even){border-right:0}.card{padding:25px}.hero-row{gap:12px}.big{font-size:22px}.mode-pill{margin-left:0}.topline{padding:12px 20px}.potd .jp{font-size:30px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>
+body{padding:28px;background:#d7e0dd}.wrap{max-width:1200px;box-shadow:none;border:0}.topline{border-bottom:1px solid #b4c1bb;padding:18px 28px;letter-spacing:.5px}header{grid-template-columns:1fr 1.2fr;border:0}.intro{padding:42px 32px;align-self:center}h1{font-size:clamp(52px,6.5vw,88px);letter-spacing:-2px;line-height:.95;margin:20px 0}.intro p{font-size:16px;color:var(--muted)}.voice-prompt{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:12px 16px;background:var(--text);color:var(--panel);font-size:13px}.voice-prompt span{color:#ed7467;font-size:23px}.poster{border:0;min-height:0;background:#bed9dd;display:grid;align-items:center}.poster:before{display:none}.city-art{display:block;width:100%;height:auto}.card.hero-card{padding:18px 30px;background:#e0e5de;color:var(--text);border:0}.hero-card h2{display:none}.hero-card .muted{color:var(--muted)}.level-badge{color:var(--accent);font-size:38px;width:52px;height:52px}.level-badge:before{content:'LV';position:absolute;bottom:-4px;font:9px monospace}.mode-pill{color:var(--muted);border:0}.big{font-size:20px}.xpbar{background:#bec9bf;height:5px}.grid{gap:0}.card{padding:28px 30px;border-color:#b4c1bb}.card h2{font:14px/1.5 "Helvetica Neue",Arial,sans-serif;letter-spacing:0;text-transform:none;color:var(--muted);margin-bottom:15px}.potd{background:#eaece5}.potd .jp{margin:12px 0;font-size:clamp(25px,3vw,38px)}.potd #potdEn{font-size:16px}.card:nth-child(even){border-color:#b4c1bb}.voice-cue{font-size:10px;letter-spacing:0}#quests li{border:0;font-size:24px;font-weight:700;min-height:84px}#quests .empty{font-size:16px;font-weight:400}#quests .tag{font-weight:400;background:var(--accent);border:0;color:#fff}.archive{padding:18px 30px;background:#e5e9e2}.archive summary{cursor:pointer;font-size:13px;color:var(--muted)}.archive ul{margin-top:16px}.board-footer{color:var(--muted);letter-spacing:0}
+@media(max-width:720px){body{padding:10px}header{grid-template-columns:1fr}.intro{padding:30px}h1{font-size:64px}.poster{border:0}.city-art{max-height:310px}.hero-row{gap:16px}.card{padding:24px}.archive{padding:18px 24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline"><strong>QUEST MODE</strong><span id="connection" role="status">Connecting…</span></div>
+  <header>
+    <div class="intro"><div class="eyebrow">おはよう / HELLO, HERO</div><h1>Your next<span>chapter.</span></h1><p>One small quest. One step stronger.</p><div class="voice-prompt"><span aria-hidden="true">◉</span> “Alexa, open quest mode.”</div></div>
+    <div class="poster"><svg class="city-art" viewBox="0 0 640 420" role="img" aria-labelledby="art-title"><title id="art-title">A red futuristic motorcycle waiting above a quiet blue city at sunrise</title><defs><pattern id="windows" width="18" height="24" patternUnits="userSpaceOnUse"><rect width="18" height="24" fill="#849da2"/><rect x="5" y="5" width="4" height="9" fill="#bed8da"/></pattern></defs><rect width="640" height="420" fill="#bed9dd"/><circle cx="395" cy="151" r="112" fill="#d63429"/><path d="M0 214H38V120H77V180H100V78H149V155H183V107H217V204H250V136H278V53H309V169H347V112H380V182H423V83H457V176H490V127H530V197H561V100H603V157H640V310H0Z" fill="#95b2b7"/><path d="M0 261H33V198H89V244H130V149H179V230H205V180H259V255H287V165H322V230H364V195H405V263H459V183H509V250H552V211H605V243H640V337H0Z" fill="url(#windows)"/><path d="M0 336L640 246V420H0Z" fill="#e8e9df"/><path d="M0 358L640 269" stroke="#20292a" stroke-width="3"/><path d="M0 396L640 308" stroke="#b3bdb5" stroke-width="3"/><ellipse cx="355" cy="346" rx="205" ry="22" fill="#223234" opacity=".15"/><g stroke="#20292a" stroke-width="5" stroke-linejoin="round"><circle cx="215" cy="325" r="45" fill="#222c2c"/><circle cx="215" cy="325" r="25" fill="#a8bcbb"/><circle cx="475" cy="309" r="48" fill="#222c2c"/><circle cx="475" cy="309" r="28" fill="#a8bcbb"/><path d="M187 307L240 250L303 248L328 269L401 252L448 238L489 258L508 290L452 302L407 330L283 343L258 310Z" fill="#d83125"/><path d="M243 251L262 210L308 194L345 205L328 250Z" fill="#c5dce0"/><path d="M267 208L307 201L330 210L314 239L251 248Z" fill="#607a7e"/><path d="M334 259L355 236L400 234L422 246L398 268Z" fill="#333e3b"/><path d="M283 276L337 273L372 298L345 324L295 329Z" fill="#b9231c"/><path d="M215 325L281 309M435 285L475 309" stroke="#738b8d" stroke-width="9"/><path d="M374 283L422 273M283 263L304 260" stroke="#f0c2a7" stroke-width="6"/><path d="M333 222L365 217L376 229" fill="none"/><path d="M194 293L223 276" stroke="#f6e7ba" stroke-width="9"/></g><path d="M35 41H94M35 41V98M605 378H548M605 378V322" stroke="#536c70" fill="none" stroke-width="2"/></svg></div>
+  </header>
+
+  <div class="grid">
+    <div class="card hero-card">
+      <h2>Your progress</h2>
+      <div class="hero-row">
+        <div class="level-badge" id="levelBadge" data-level="1"></div>
+        <div style="flex:1">
+          <div class="big" id="heroName">—</div>
+          <div class="muted"><span id="xp">0</span> / <span id="xpNext">100</span> XP · mode: <span class="mode-pill" id="mode">hero</span></div>
+          <div class="xpbar"><div id="xpFill" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card potd">
+      <h2>Le japonais de notre conversation</h2>
+      <div class="jp" id="potdJp">…</div>
+      <div id="potdRomaji" class="muted">…</div>
+      <div id="potdEn">…</div>
+      <p class="voice-cue">IKÉ · le sens &nbsp; MOTTO · les détails<br>NANTÉ · comment poser la question</p>
+    </div>
+
+    <div class="card">
+      <h2>Ta petite quête, si tu veux</h2>
+      <ul id="quests"><li class="empty">No quests yet — say “Alexa, start a quest”</li></ul>
+      <p class="voice-cue">Dis « propose une quête ». Les indices comptent aussi.</p>
+    </div>
+
+    <details class="card archive">
+      <summary>Learned phrases</summary>
+      <ul id="phrases"><li class="empty">None yet — ask for the weather!</li></ul>
+    </details>
+
+    <details class="card archive">
+      <summary>Adventure history</summary>
+      <ul id="log" class="log"><li class="empty">Waiting for your first command…</li></ul>
+    </details>
+  </div>
+  <footer class="board-footer"><span>クエストモード</span><span>君ならできる / YOU CAN DO IT.</span></footer>
+</div>
+
+<script>
+async function refresh() {
+  try {
+    const response = await fetch('/api/state');
+    if (!response.ok) throw new Error('State unavailable');
+    const s = await response.json();
+    if (s.learning) {
+      const learning = s.learning;
+      document.querySelector('.hero-card').hidden = true;
+      document.getElementById('connection').textContent = '● Connecté';
+      const phrase = learning.last;
+      document.getElementById('potdJp').textContent = phrase?.jp || '…';
+      document.getElementById('potdRomaji').textContent = phrase?.romaji || 'Demande la météo pour commencer.';
+      document.getElementById('potdEn').textContent = phrase?.fr || '';
+      const quests = document.getElementById('quests');
+      quests.replaceChildren();
+      const row = document.createElement('li');
+      row.textContent = learning.quest ? `${learning.quest.status === 'done' ? '✓ ' : ''}${learning.quest.title}` : 'Pas de devoirs. Une petite quête quand tu en as envie.';
+      quests.append(row);
+      if (learning.quest) {
+        const hint = document.createElement('li');
+        hint.textContent = `${learning.quest.jp} · ${learning.quest.romaji}`;
+        hint.style.fontSize = '16px';
+        quests.append(hint);
+      }
+      return;
+    }
+    document.getElementById('connection').textContent = '● Connected';
+    document.getElementById('heroName').textContent = s.heroName + '-san';
+    document.getElementById('mode').textContent = s.mode;
+    document.getElementById('xp').textContent = s.xp;
+    document.getElementById('xpNext').textContent = s.xpToNext;
+    const pct = Math.min(100, Math.round(100 * s.xp / s.xpToNext));
+    document.getElementById('xpFill').style.width = pct + '%';
+    const badge = document.getElementById('levelBadge');
+    badge.dataset.level = s.level;
+    badge.style.setProperty('--pct', pct + '%');
+
+    document.getElementById('potdJp').textContent = s.phraseOfTheDay.jp;
+    document.getElementById('potdRomaji').textContent = s.phraseOfTheDay.romaji;
+    document.getElementById('potdEn').textContent = s.phraseOfTheDay.en;
+
+    const quests = document.getElementById('quests');
+    if (s.quests.length) {
+      const active = s.quests.filter(q => q.status !== 'done').reverse();
+      quests.innerHTML = (active.length ? active.slice(0, 1) : s.quests.slice(-1)).map(q =>
+        `<li class="${q.status === 'done' ? 'done' : ''}"><span>${q.title}</span><span class="tag ${q.type}">${q.status === 'done' ? '✓ ' + q.xp + ' XP' : q.type}</span></li>`
+      ).join('');
+    }
+
+    const phrases = document.getElementById('phrases');
+    if (s.phrasesLearned.length) {
+      phrases.innerHTML = s.phrasesLearned.map(p =>
+        `<li><span><span class="phrase-jp">${p.jp}</span><br><span class="muted">${p.romaji} — ${p.en}</span></span><span class="tag">×${p.seenCount}</span></li>`
+      ).join('');
+    }
+
+    const log = document.getElementById('log');
+    if (s.log.length) {
+      log.innerHTML = s.log.map(e =>
+        `<li class="${e.kind}">${e.text}<time>${new Date(e.at).toLocaleTimeString()}</time></li>`
+      ).join('');
+    }
+  } catch (e) { document.getElementById('connection').textContent = 'Reconnecting…'; }
+}
+refresh();
+setInterval(refresh, 1500);
+</script>
+</body>
+</html>
