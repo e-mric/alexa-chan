@@ -23,9 +23,10 @@ function copy(relative) {
   count++;
 }
 for (const item of ['.gitignore', '.env.example', 'LICENSE', 'THIRD_PARTY_NOTICES.md',
-  'README.md', 'devpost-submission.md', 'package.json', 'package-lock.json',
+  'README.md', 'AGENTS.md', 'devpost-submission.md', 'package.json', 'package-lock.json',
   'mcp-server.js', 'server.js', 'lib', 'test', 'dashboard', 'skill-package', 'web', '.github', 'scripts']) copy(item);
-for (const file of ['prd.md', 'student-trial.md', 'mcp-judge-trial.md', 'persona-validation.md',
+for (const file of ['index.md', 'project-state.md', 'engineering.md', 'chat-starters.md', 'workflow-sources.md',
+  'prd.md', 'student-trial.md', 'mcp-judge-trial.md', 'persona-validation.md',
   'submission-readiness.md', 'submission-demo.md', 'product-feedback.md', 'visual-assets.md']) copy(`docs/${file}`);
 console.log(JSON.stringify({ directory: target, files: count, providerRecordings: 0,
   privateData: false, parkedProgrammeDocs: false }));

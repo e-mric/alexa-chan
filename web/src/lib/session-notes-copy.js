@@ -6,7 +6,7 @@ export const notebookCopy = {
     startTitle: 'Start with something useful to you.', startBody: 'Keep notes from a class, a meeting or your day. Reread them when you need them; a little Japanese is there if you’re curious.', startHint: 'Your language first · Japanese is optional · Saved in this browser', pronunciation: 'Show pronunciation hint',
     question: 'Before · a question to bring', body: 'During · your original notes', takeaway: 'After · one thing to take with you',
     paste: 'Paste your notes here. Your wording and formatting stay unchanged.', import: 'Add a .txt or .md file',
-    limits: 'UTF-8 text or Markdown · up to 20,000 characters / 80 KB. Markdown is displayed as text, not executed.',
+    limits: 'UTF-8 text or Markdown · up to 20,000 characters / 80 KB. Student notes have formatted and original-text views. HTML is inert; images do not load.',
     replace: 'Replace the notes in this draft with this file? Your question and takeaway will stay.',
     badFile: 'Could not read that file. Choose UTF-8 .txt or .md within the limits. Your draft was kept.',
     imported: 'Added to your draft. Save when you’re ready.', save: 'Save & reread', saved: 'Saved in this browser.',

@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { advanceRide, loopRoadPosition, roadProfile as highwayProfile, alignedRiderX, wheelRotation, riderVibration, ROAD_NEAR, ROAD_LENGTH } from './ride-motion.js';
+  import { riderAssetFor } from './ride-assets.js';
   let { paused = false, slow = false, onfallback = () => {} } = $props();
   let host;
   onMount(() => {
@@ -163,11 +164,15 @@
         for(let j=0;j<4;j++) track(box(.08+random()*.16,.006,1+random()*3,0,0,0,reflectionMat),x+j*.11,.035,14-i*11+j*.4,1,true);
       }
 
-      const riderMap = texture('/images/ride-rider-courier.png', true);
-      const compactRiderMap = texture('/images/ride-rider-courier-rear.png', true);
+      const riderMaps = new Map();
+      function riderMapFor(width) {
+        const src = riderAssetFor(width);
+        if (!riderMaps.has(src)) riderMaps.set(src, texture(src, true));
+        return riderMaps.get(src);
+      }
       const riderMaterial = new THREE.ShaderMaterial({
         uniforms: {
-          map: { value: riderMap }, travel: { value: 0 }, wheelAngle: { value: 0 }, frontWheelAngle: { value: 0 }, vibration: { value: 0 }, compact: { value: 0 },
+          map: { value: riderMapFor(host.clientWidth) }, travel: { value: 0 }, wheelAngle: { value: 0 }, frontWheelAngle: { value: 0 }, vibration: { value: 0 }, compact: { value: 0 },
           tyreCenter: { value: new THREE.Vector2(.315,.744) }, tyreRadius: { value: new THREE.Vector2(.128,.224) }
         }, transparent: true, depthWrite: false,
         vertexShader: `varying vec2 vUv;uniform float travel;uniform float vibration;
@@ -238,7 +243,7 @@
         rider.scale.setScalar(compact ? 1.05 : 1.18);
         const rearUV=compact?{u:.5,v:.99}:{u:.35,v:.974}, frontUV={u:.81,v:.568};
         const x=compact?camera.position.x:alignedRiderX(camera.position.x,camera.position.y,3.3,4.95,rider.scale.x,rearUV,frontUV);
-        riderMaterial.uniforms.map.value=compact?compactRiderMap:riderMap;
+        riderMaterial.uniforms.map.value=riderMapFor(w);
         riderMaterial.uniforms.compact.value=compact?1:0;
         riderMaterial.uniforms.tyreCenter.value.set(compact?.50:.315,compact?.755:.744);
         riderMaterial.uniforms.tyreRadius.value.set(compact?.14:.128,compact?.238:.224);

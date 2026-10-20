@@ -4,6 +4,19 @@ Generated with the built-in GPT image generation tool on 30 September 2026.
 Assets live in web/static/images: quest-city.png (homepage and onboarding), weather-quest.png (quest panel), memory-quest.png (review sidebar).
 These are narrative illustrations, not indicators of real weather or progress.
 
+## Runtime derivatives — 20 October 2026
+
+The student ride uses `ride-fuji.webp` (~227 KiB) and one viewport-appropriate
+`ride-rider-courier.webp` (~197 KiB) or `ride-rider-courier-rear.webp` (~215 KiB).
+Notebook covers use `quest-city-cover.webp` (~89 KiB, 768 pixels wide). Each has
+a regression budget below 500,000 bytes. Originals are preserved; this is format
+optimization, not new artwork or additional usage-rights clearance.
+
+Reproduce with `cwebp` 1.6.0: `-q 82 -alpha_q 100` for riders, `-q 82` for Fuji,
+and `-q 78 -resize 768 0` for the city cover. Preserve original rider dimensions
+(1024 × 1536) so animation masks remain aligned. `ride-assets.js` chooses a rider
+at the existing 800px breakpoint and caches a second only if resized across it.
+
 ## Practical courier rider update
 
 On 7 October 2026, the built-in GPT image generation tool edited the existing

@@ -18,7 +18,7 @@ export const copy = {
     storageBad: 'Browser storage is unavailable or contains invalid data. Existing data was not overwritten. Export a backup if available and check your browser settings.',
     export: 'Export a personal backup', restore: 'Restore a personal backup', restoreHelp: 'Restore replaces the calendar, memories, notes and language on this browser.', restored: 'Personal backup restored.', restoreBad: 'Could not restore this backup. Nothing was changed.',
     consentRestore: 'Replace this browser’s calendar, notes and learning progress with this backup?', clear: 'Remove local calendar', clearHelp: 'Your Japanese memories and notes are kept.', confirmClear: 'Remove this calendar snapshot from this browser?',
-    pause: 'Stop audio', audioNote: 'Japanese phrases and recorded French, Dutch and German guidance use Koichi. Unrecorded text uses device voices; you may need to install a suitable voice. That text goes to your device’s speech service, not to our server.',
+    pause: 'Stop audio', audioNote: 'Available curated lesson recordings use Koichi. Unrecorded text uses device voices; you may need to install a suitable voice. That text goes to your device’s speech service, not to our server.',
     demo: 'Public demo', local: 'PERSONAL PILOT', from: 'from', until: 'until', readNote: 'Listen to my note', noteDirty: 'Unsaved note. Save it before changing the day.', exportEmpty: 'Nothing to export yet.',
     imported: 'events imported', allMemories: 'Saved phrases', helpImport: 'Choose the snapshot file prepared for you. Import stays in this browser; it is not uploaded.', selected: 'Selected day', unverified: 'Snapshot only: confirm important changes in Notion.'
   },

@@ -1,12 +1,28 @@
 # English student demonstration
 
-Owner-local draft: `data/alexa-chan-student-demo-draft.mp4`.
-Verified: **108 seconds**, H.264, 1280 × 816, 24 fps, 6,207,065 bytes (~6.2 MB).
-432 actual app captures were assembled at four per second with a caption strip;
-representative encoded frames were visually inspected.
-Produced from actual browser captures of Noor's university example and synthetic
-study notes, with English captions. No private data, external soundtrack or
-ElevenLabs audio. Reading pauses are edited; not a latency benchmark.
+Current owner-local draft, **20 October 2026**:
+`data/submission-2026-10-20/alexa-chan-demo-reviewed.mp4`.
+Verified: **112 seconds**, H.264/AAC, **1920 × 1080**, **24 fps**,
+**6,108,307 bytes** (~6.1 MB). English narration, chapter captions, animated
+progress/typography and architecture/end cards frame actual app captures.
+
+The source is an isolated, provider-free judging app with Noor's fictional day
+and synthetic notes. Browser actions genuinely fetched, saved and reviewed data;
+the video edits holds and loops a short actual ride capture. It is not a continuous
+real-time recording or latency benchmark. No private notes, credentials, external
+music/footage or old ElevenLabs clips were included. One notebook crop was corrected
+after encoded-frame inspection. The first render is retained locally, not the final file.
+
+New narration: owner-selected **Koichi**, voice `H8ZPDxbrPcks5hEsi2fq`,
+`eleven_v4`, **110.08 seconds**, approximately **1,545 credits**. The owner
+confirmed a current paid plan and authorized generation on 20 October. This is
+not retroactive clearance for older clips and does not introduce a live app TTS API.
+The app shown uses device voices; the voiceover is separate editorial narration.
+
+Local editing recipe, source captures, narration text and metadata are alongside
+the video under the same gitignored folder. They are not bundled into judging code.
+The recipe uses FFmpeg and workspace canvas; captions fade in, and the final graphic
+states the loopback/fictional-data/no-device boundary explicitly.
 
 The old founder capture is an archived draft and must not be used for submission.
 Review the student capture before uploading. A local file is not the required
@@ -25,12 +41,18 @@ public YouTube/Vimeo URL; no public video has been posted by this work.
 9. Reload/reconnect persistence with visible real protocol trace.
 10. Calendar-free study notes, unchanged original text, Japanese initially closed.
 11. Optional companion phrase, not a translation of the notes.
-12. Multilingual personal interface and rereading: practical task first.
+12. English → Japanese personal interface, larger audio controls and readable surfaces.
+13. Formatted Markdown and exact-source reading/editing, with private backup boundary.
+14. A truthful architecture recap: SvelteKit/Three.js, real MCP, browser-only notes.
 
-The recording is intended to remain below three minutes. Duration, format and
-rendered-frame checks are recorded in `submission-readiness.md` after encoding.
-The draft uses captions rather than spoken narration. A personal English voiceover
-would improve storytelling, but do not include unverified provider recordings or music.
+`ffprobe` confirms the 112-second duration and codecs. Encoded meaning, notebook
+and architecture frames were visually checked. Audio was decoded end-to-end:
+mean level approximately −16.9 dB, peak −1.3 dB; no silent track or clipping was
+detected by that check. This is not human pronunciation, full audiovisual timing
+or accessibility sign-off. The owner still needs to watch/listen to the full video.
+
+The 12 October 108-second silent student draft is historical and should not be
+uploaded instead. No public video has been uploaded or URL claimed by this work.
 
 ## Owner finishing steps
 

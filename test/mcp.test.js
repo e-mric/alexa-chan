@@ -56,12 +56,23 @@ test('MCP server uses real Streamable HTTP, isolated persistent profiles and saf
     assert.equal(presentation.phrase.jp, '君ならできる！');
     assert.equal((await call(a, 'get_day_programme', { date: '2026-10-12' })).status, 'empty');
     assert.equal((await call(a, 'get_day_programme', { date: '2020-01-01' })).status, 'outside');
-    const explanation = await call(a, 'explain_phrase', { phraseId: 'courage', language: 'fr', depth: 'question' });
-    assert.equal(explanation.phrase.jp, '今日の予定は？'); assert.equal(explanation.text, 'Quel est mon programme aujourd’hui ?');
+    const explanation = await call(a, 'explain_phrase', { phraseId: 'courage', language: 'en', depth: 'question' });
+    assert.equal(explanation.phrase.jp, '今日の予定は？'); assert.equal(explanation.text, 'What’s on my calendar today?');
   });
   await t.test('invalid dates and unsupported phrases fail without writes', async () => {
     for (const [name, args] of [['get_day_programme', { date: '2026-02-30' }], ['save_phrase', { phraseId: '../../private' }], ['explain_phrase', { phraseId: 'step', language: 'xx' }]]) {
       assert.equal((await a.callTool({ name, arguments: args })).isError, true);
+    }
+    assert.equal((await call(a, 'list_memories')).memories.length, 0);
+  });
+  await t.test('student tools offer English explanations only and reject other base languages', async () => {
+    const catalogue = await a.listTools();
+    for (const tool of catalogue.tools.filter(tool => tool.inputSchema.properties?.language)) {
+      const schema = tool.inputSchema.properties.language;
+      assert.ok(schema.const === 'en' || JSON.stringify(schema.enum) === '["en"]');
+    }
+    for (const language of ['fr', 'nl', 'de']) {
+      assert.equal((await a.callTool({ name: 'explain_phrase', arguments: { phraseId: 'step', language } })).isError, true);
     }
     assert.equal((await call(a, 'list_memories')).memories.length, 0);
   });

@@ -29,3 +29,9 @@ browser backups, credentials and runtime profiles must not be committed.
 The separate judging distribution has an empty recording catalogue and contains
 no ElevenLabs MP3s, including in its initial history. Audio uses installed device
 voices. No provider-recording permission is claimed by omitting those files.
+
+On 20 October 2026 the owner confirmed a current paid ElevenLabs plan and
+authorized fresh English narration for the demo video. One new Koichi / eleven_v4
+take was generated for that owner-local video. It is not an app runtime dependency
+or retroactive clearance for older clips. The judging source remains device-voice
+only; the video provenance is recorded separately in `docs/submission-demo.md`.

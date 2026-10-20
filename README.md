@@ -7,8 +7,9 @@ project, notice one small Japanese encouragement, and choose whether to explore
 it. Keep your own study notes without a calendar or account. Japanese is optional:
 your notes stay unchanged, and only phrases you explicitly keep become memories.
 
-English is the default demonstration language. Explanations and the personal
-notebook interface also support French, Dutch and German.
+The student interface and explanations are English; Japanese is the learning
+language. Older saved language preferences remain recoverable, without changing
+the English interface or translating original notes.
 
 ## Try it locally
 
@@ -27,7 +28,9 @@ and is returned by a real MCP server. It is not a university calendar connection
 an unrestricted AI chat, or a direct Alexa+ device connection.
 
 - [My study notes](http://127.0.0.1:3001/student): create a titled notebook, paste
-  or import text/Markdown, save, then explore Japanese only when curious.
+  or import text/Markdown, save, then explore Japanese only when curious. Saved
+  notes offer **Formatted** and **Original text** views; edits and backups retain
+  the exact source. Raw HTML is inert and remote images do not load.
 - [The cyberpunk ride](http://127.0.0.1:3001/student-ride): the same personal notes
   and memories in the Three.js world. Pause and reduced-motion fallbacks are available.
 - [Integration proof](http://127.0.0.1:3001/student-mcp): real MCP initialization,
@@ -39,18 +42,22 @@ browser data. Server-saved example memories are separate from your private notes
 
 Audio requires installed device voices in the judging distribution. Missing
 Japanese voices are explained; no wrong-language fallback or autoplay is used.
+The shared player identifies the active text, language and source, with pause,
+resume, stop and slower playback. Changing device-speech speed restarts the
+current spoken sentence; doing so while paused does not start playback.
 The private development copy may contain exact-text ElevenLabs recordings; they
 are excluded from the judging package while distribution permission is unverified.
 
 ## Verify
 
 ```sh
-npm test
-npm --prefix web run check
-npm run build
-npm audit --omit=dev
-npm --prefix web audit
+npm run verify
 ```
+
+This is the same gate used by CI: local documentation links, automated tests,
+Svelte diagnostics, production build and runtime/web dependency audits.
+For documentation-only edits use `npm run check:docs` plus factual/formatting review.
+See [engineering guidance](docs/engineering.md) for focused checks and limitations.
 
 For hot reload, leave the MCP server running and run `npm run dev`; open
 http://127.0.0.1:5173/. The development proxy forwards MCP requests to port 3001.
@@ -58,6 +65,9 @@ Never open the old dashboard HTML directly.
 
 ## Documentation
 
+- [Project wiki: start here](docs/index.md) and [current state/handoff](docs/project-state.md)
+- [Development guidance](AGENTS.md), [engineering workflow](docs/engineering.md)
+  and [focused chat starters](docs/chat-starters.md)
 - [Morning walkthrough and seven-day trial](docs/student-trial.md)
 - [Focused PRD](docs/prd.md)
 - [MCP architecture, privacy and judging guide](docs/mcp-judge-trial.md)

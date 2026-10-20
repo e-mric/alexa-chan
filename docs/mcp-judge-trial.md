@@ -16,11 +16,13 @@ page at `/` uses the same real client with **Try Noor's day**. Keep the server r
 ## Walkthrough
 
 1. Read today's two fictional university events, their times and locations.
-2. Try Iké, Motto, Nanté; optionally choose FR/NL/DE explanations. Listen uses
+2. Expand **A little Japanese, if you’re curious** and try Meaning · Iké,
+   More detail · Motto, How to ask · Nanté; explanations are English. Listen uses
    installed device voices, never autoplay. Missing voices are reported.
 3. For Nanté, type `Kyō no yotei wa?` or use the hint and ask in Japanese.
    The actual MCP programme tool is called again; no phrase is silently saved.
-4. Keep the encouragement or question, open Memories, reveal and choose Again
+4. Keep the encouragement or question, open Memories, optionally show a pronunciation
+   hint, reveal and choose Again
    or Remembered. Reload/reconnect to verify persistence.
 5. Expand Connection proof: inspect actual initialize (2025-11-25), notification,
    tools/list and tools/call, success/failure and timings. Tokens are not displayed.
@@ -31,6 +33,9 @@ The example rolls from today through six days ahead in Europe/Brussels. Today
 contains computer science and a group project; the next four days one event each;
 the last two are empty. Outside dates are distinguished from empty dates. These
 are relative sample days, not a real weekly university schedule or enrolment.
+Its badge stays visible; expand **About this example** for limitations/reconnection.
+The unified player offers pause/resume and slower speech with explicit language
+and source. No playback starts automatically and no fake duration/progress is shown.
 
 ## Actual integration
 

@@ -1,0 +1,23 @@
+:root{
+  --ink:#162c38;
+  --paper:#f5f0e6;
+  --surface:#fffaf1;
+  --surface-soft:#e3ebe2;
+  --signal:#ba3f32;
+  --action-ink:#963429;
+  --muted:#4f625f;
+  --muted-on-dark:#c2d0ca;
+  --line:#c9d2c9;
+  --border:#a8bbb5;
+  --amber:#e7b76f;
+  --focus:#a62e24;
+  --focus-on-dark:#ffad90;
+  --warning-bg:#f8e4cf;
+  --reading-width:66ch;
+  --control-target:44px;
+}
+body{font-family:Arial,"Noto Sans JP",sans-serif}
+:lang(ja){font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
+button,a,input,select,textarea,summary{touch-action:manipulation}
+input[type=file],input[type=file]::file-selector-button{min-height:var(--control-target);font:inherit}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

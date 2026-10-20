@@ -1,6 +1,6 @@
 # Alexa-chan — Product Requirements Document
 
-Version 3.0 · 12 October 2026 · Owner: Emeric Van Frausum
+Version 3.2 · 20 October 2026 · Owner: Emeric Van Frausum
 
 ## Mission
 
@@ -10,9 +10,11 @@ learning, not a replacement for a language course or a demonstrated learning out
 
 ## Current scope
 
-The primary example is **Noor's university day**, in English for judges. Personal
-study notes and phrase explanations support French, Dutch, German and English.
-Japanese is the target language throughout. Membership of any external programme
+The primary example is **Noor's university day**. **Accepted decision, 20 October:**
+the student experience, personal UI and explanations are English → Japanese only.
+Older FR/NL/DE locale values remain intact in stored data and recoverable backups;
+they do not select another student interface language. Original notes are never
+translated automatically. Membership of any external programme
 is irrelevant to using the app. The earlier programme-specific pilot is parked,
 unlinked, and must not appear in navigation, onboarding or public storytelling.
 Existing private notes and calendar data must not be erased or republished.
@@ -58,15 +60,56 @@ Only **Keep this phrase** opts into review. Nothing blocks rereading.
 | --- | --- | --- |
 | First use | Clearly labelled university example; separate personal notes entry | No programme membership, account or calendar needed |
 | Timetable | Rolling seven-day fictional data in Brussels time | Today has two events; following four days one each; final two empty; outside range distinct |
-| Notebooks | Titled/dated text or Markdown; save, reopen, import, backup/restore | Original content preserved; HTML displayed as text; invalid backup cannot overwrite valid notes |
+| Notebooks | Titled/dated text or Markdown; save, reopen, import, backup/restore; formatted/original-text views | Exact source preserved; raw HTML inert, unsafe links blocked, remote images not loaded; invalid backup cannot overwrite valid notes |
 | Drafts | Warn/block losing unsaved changes; surface storage failure | No silent success or accidental draft loss |
 | Japanese | Small curated catalogue: courage, step, question, listening | Optional meaning/detail/romaji; no automatic note rewriting or saving |
 | Audio | User-triggered, language-labelled playback; stop/navigation controls | Missing voices, denied playback and failed recordings explicitly reported; no autoplay |
 | Review | Explicit capture, deduplication, reveal before rating | Newly saved phrase due immediately; rating updates next due time; reload retains progress |
 | Views | Simple notes and decorative Three.js ride share personal store | Reading pauses ride; reduced-motion/static fallback; readable usable controls |
-| Languages | Personal UI and Japanese help in FR/NL/DE/EN; judge interface English | Same supported functionality; original note/timetable language not rewritten |
+| Languages | Student UI and Japanese explanations in English; optional Japanese listening | Old locale values/notes survive reload and backup; presentation remains English |
 | Integration | Official MCP SDK, Streamable HTTP, protocol 2025-11-25 | Real initialize/tools/list/tools/call; trace redacts tokens; no simulated success |
 | Privacy | Personal notes never sent through MCP | Student and parked personal stores separate; judge stores only phrase progress |
+
+## Visual and interaction direction
+
+The October visual pass follows **cinematic world, calm interface**. Original
+city/rider art stays atmospheric; warm ivory reading surfaces, petrol-blue chrome,
+vermilion actions and muted metadata define the shared visual language.
+
+**Accepted refinements, 20 October:** text over moving artwork has opaque petrol
+backing; reading surfaces are opaque ivory. Normal text targets at least 4.5:1;
+primary/audio controls target 44 × 44 CSS pixels. Shared semantic tokens own
+reading/action colours. Optimized WebP derivatives retain the source artwork;
+the ride initially loads only the viewport-appropriate rider atlas. A small
+decorative torii marks internal journey entry links, alongside explicit text;
+ordinary back controls and external links keep conventional directional cues.
+
+- Today · Notes · Memories share navigation labels across the example and personal
+  views. Example memories and personal notebook memories remain distinctly labelled
+  and stored separately; this pass does not migrate data or pretend to unify stores.
+- Timetable cards foreground time, event and location. The example badge stays
+  visible; expanded limitations and real protocol proof are disclosed below.
+- A small Japanese phrase can be heard immediately. Optional helpers expand only
+  when curious: Meaning · Iké, More detail · Motto, How to ask · Nanté.
+- Notebook collections use existing original artwork as quiet covers, real dates
+  and literal previews. Reading uses a comfortable measure; blank preparation and
+  takeaway sections do not dominate the saved note.
+- One global player shows the active text, language and source, with pause/resume,
+  stop and slower playback. Changing device-speech speed restarts the current
+  spoken sentence; changing it while paused must not autoplay. No fake timeline.
+- First use offers a useful example or private notes directly, with no new account,
+  lengthy questionnaire or required Japanese lesson. No reference artwork is copied.
+
+Interaction references inspected through Mobbin: [Amie](https://mobbin.com/screens/05c4146b-77d3-486d-809d-d8173d8aa4d6),
+[Finch](https://mobbin.com/screens/e8ec9fce-b079-4636-8d45-01795e9084e8),
+[Substack](https://mobbin.com/screens/040a97be-8e47-4be4-823e-f36cda57588b),
+[Matter](https://mobbin.com/screens/dd74962c-5184-459c-9281-12e2c19bb44b),
+[Vizcom](https://mobbin.com/sites/sections/ea8b50e2-1c36-4925-bf02-59d901080f1a).
+These are design references, not evidence that the proposed patterns improve outcomes.
+Audio uses the documented device APIs for [pause](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/pause),
+[resume](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/resume)
+and [recorded playback speed](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate);
+browser behaviour remains explicitly tested rather than assumed from API availability.
 
 ## Storage and security boundary
 
@@ -92,8 +135,9 @@ Noor: Dutch-speaking student, calendar-free project notes and keyboard use.
 Lena: German-speaking working student, limited time, ignores Japanese.
 Sam: English-speaking international student, unfamiliar app, backup/recovery.
 
-These are fictional test profiles, not recruited participants. Automated checks
-cover all four; browser evidence and limitations are in `persona-validation.md`.
+These are fictional test profiles, not recruited participants. Earlier multilingual
+checks remain historical/compatibility evidence. The current student interface is
+English for all four. Browser evidence and limitations are in `persona-validation.md`.
 
 ## Release and evaluation gates
 

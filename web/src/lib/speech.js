@@ -13,7 +13,9 @@ export function speechParts(text, language = 'en-US') {
 }
 
 export function createSpeechPlayer(getHost = () => typeof window === 'undefined' ? null : window, recordings = []) {
-  const state = writable({ playing: false, message: '', text: '', source: '' });
+  let slow = false, current, remaining = [], restartOnResume = false, continueQueue, pendingNext = false;
+  const state = writable({ playing: false, paused: false, slow, message: '', text: '', source: '', lang: '', title: '', recordingsAvailable: recordings.length > 0 });
+  function publish(value) { current = { playing: false, paused: false, slow, message: '', text: '', source: '', lang: '', title: '', ...value, recordingsAvailable: recordingsEnabled && recordings.length > 0 }; state.set(current); }
   const normalize = text => String(text).normalize('NFC').replace(/\s+/g, ' ').trim();
   const clips = new Map(recordings.map(clip => [normalize(clip.text), clip]));
   let generation = 0, activeAudio = null, recordingsEnabled = true;
@@ -28,21 +30,25 @@ export function createSpeechPlayer(getHost = () => typeof window === 'undefined'
   function stop() {
     generation++;
     releaseAudio();
-    getHost()?.speechSynthesis?.cancel();
-    state.set({ playing: false, message: '', text: '' });
+    const synth = getHost()?.speechSynthesis;
+    synth?.cancel();
+    if (synth?.paused) synth.resume?.();
+    remaining = []; restartOnResume = false; pendingNext = false; continueQueue = undefined;
+    publish({});
   }
-  async function play(parts) {
+  async function play(parts, options = {}) {
     stop();
+    const title = options.title || '';
     const host = getHost(), synth = host?.speechSynthesis, token = generation;
     const queue = parts.flatMap(part => {
       const clip = recordingsEnabled ? clips.get(normalize(part.text)) : null;
       return clip && host?.Audio ? [{ ...part, clip }] : speechParts(part.text, part.lang);
     }).filter(part => part.text.trim());
     if ((!synth || !host.SpeechSynthesisUtterance) && !queue.some(part => part.clip)) {
-      state.set({ playing: false, text: '', message: 'Audio is unavailable in this browser. Try a browser with text-to-speech support.' });
+      publish({ message: 'Audio is unavailable in this browser. Try a browser with text-to-speech support.' });
       return;
     }
-    state.set({ playing: true, text: '', message: 'Preparing audio…' });
+    publish({ playing: true, title, message: 'Preparing audio…' });
     // Some browsers populate voices after the first interaction.
     if (queue.some(part => !part.clip) && synth && !synth.getVoices().length) await new Promise(resolve => {
       const done = () => { clearTimeout(timer); synth.removeEventListener('voiceschanged', done); resolve(); };
@@ -57,24 +63,26 @@ export function createSpeechPlayer(getHost = () => typeof window === 'undefined'
     let index = 0;
     function next() {
       if (generation !== token) return;
+      if (current?.paused) { pendingNext = true; remaining = queue.slice(index).map(({ text, lang }) => ({ text, lang })); return; }
       releaseAudio();
       while (index < queue.length) {
         const part = queue[index++];
+        remaining = [part, ...queue.slice(index)].map(({ text, lang }) => ({ text, lang }));
         if (part.clip) {
           const audio = new host.Audio(part.clip.file);
           activeAudio = audio;
-          audio.playbackRate = part.clip.lang?.startsWith('ja') ? .9 : 1;
+          audio.playbackRate = (part.clip.lang?.startsWith('ja') ? .9 : 1) * (slow ? .75 : 1);
           audio.preservesPitch = true;
           let failed = false;
           const fail = error => {
             if (generation !== token || failed) return;
             failed = true; releaseAudio();
-            state.set({ playing: false, text: '', source: '', message: error?.name === 'NotAllowedError'
+            publish({ message: error?.name === 'NotAllowedError'
               ? 'Press Listen again to allow playback.'
               : 'The Koichi recording could not play. Please try again. Other text can still use your device’s voice.' });
           };
           audio.onended = next; audio.onerror = fail;
-          state.set({ playing: true, text: part.text, message: warning, source: 'Koichi · ElevenLabs' });
+          publish({ playing: true, text: part.text, title, lang: part.clip.lang || part.lang, message: warning, source: 'Koichi · ElevenLabs' });
           try { const result = audio.play(); result?.catch(fail); } catch (error) { fail(error); }
           return;
         }
@@ -82,23 +90,51 @@ export function createSpeechPlayer(getHost = () => typeof window === 'undefined'
         const voice = matching.find(v => v.localService) || matching[0];
         if (!voice) continue;
         const utterance = new host.SpeechSynthesisUtterance(part.text);
-        utterance.lang = part.lang; utterance.voice = voice; utterance.rate = part.lang.startsWith('ja') ? .85 : 1;
+        utterance.lang = part.lang; utterance.voice = voice; utterance.rate = (part.lang.startsWith('ja') ? .85 : 1) * (slow ? .75 : 1);
         utterance.onend = next;
         utterance.onerror = event => {
           if (generation !== token) return;
-          state.set({ playing: false, text: '', message: event.error === 'not-allowed' ? 'Press Listen again to allow playback.' : 'Audio could not play. Try again or check your device’s speech settings.' });
+          remaining = [];
+          publish({ message: event.error === 'not-allowed' ? 'Press Listen again to allow playback.' : 'Audio could not play. Try again or check your device’s speech settings.' });
         };
-        state.set({ playing: true, text: part.text, message: warning, source: 'Device voice' });
+        publish({ playing: true, text: part.text, title, lang: part.lang, message: warning, source: 'Device voice' });
         synth.speak(utterance);
         return;
       }
-      state.set({ playing: false, text: '', message: warning });
+      remaining = [];
+      publish({ message: warning });
     }
+    continueQueue = next;
     next();
   }
-  return { subscribe: state.subscribe, stop, play,
-    useRecordings(enabled) { stop(); recordingsEnabled = enabled === true; },
-    speak: (text, lang = 'en-US') => play([{ text, lang }]) };
+  function pause() {
+    if (!current?.playing || current.paused || !remaining.length) return;
+    if (activeAudio) activeAudio.pause();
+    else if (typeof getHost()?.speechSynthesis?.pause === 'function') getHost().speechSynthesis.pause();
+    else { publish({ ...current, message: 'Pause is unavailable in this browser. You can stop and listen again.' }); return; }
+    publish({ ...current, paused: true });
+  }
+  async function resume() {
+    if (!current?.playing || !current.paused) return;
+    if (restartOnResume) { await play(remaining, { title: current.title }); return; }
+    if (pendingNext) { pendingNext = false; getHost()?.speechSynthesis?.resume?.(); publish({ ...current, paused: false }); continueQueue?.(); return; }
+    if (activeAudio) {
+      const token = generation;
+      try { await activeAudio.play(); } catch { if (token === generation) { stop(); publish({ message: 'Audio could not resume. Press Listen again.' }); } return; }
+      if (token !== generation) return;
+    } else getHost()?.speechSynthesis?.resume?.();
+    publish({ ...current, paused: false });
+  }
+  async function setSlow(enabled) {
+    slow = enabled === true;
+    if (activeAudio) { activeAudio.playbackRate = (current.lang?.startsWith('ja') ? .9 : 1) * (slow ? .75 : 1); publish({ ...current, slow }); }
+    else if (current?.playing && current.paused) { restartOnResume = true; publish({ ...current, slow }); }
+    else if (current?.playing && remaining.length) await play(remaining, { title: current.title });
+    else publish({ ...current, slow });
+  }
+  return { subscribe: state.subscribe, stop, play, pause, resume, setSlow,
+    useRecordings(enabled) { recordingsEnabled = enabled === true; stop(); },
+    speak: (text, lang = 'en-US', title = '') => play([{ text, lang }], { title }) };
 }
 
 export const speech = createSpeechPlayer(undefined, voiceRecordings);

@@ -9,7 +9,9 @@
     "build": "npm --prefix web run build",
     "start": "node mcp-server.js",
     "start:legacy": "node server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "check:docs": "node scripts/check-docs.cjs",
+    "verify": "npm run check:docs && npm test && npm --prefix web run check && npm run build && npm audit --omit=dev && npm --prefix web audit"
   },
   "keywords": [],
   "author": "",

@@ -17,11 +17,13 @@ test('judge playback can exclude recordings while personal playback can restore 
   const player = createSpeechPlayer(() => host, [{ text: '今日は晴れです。', lang: 'ja-JP', file: '/recorded.mp3' }]);
   let state; player.subscribe(value => state = value);
   player.useRecordings(false);
+  assert.equal(state.recordingsAvailable, false, 'The options panel must not advertise disabled recordings');
   await player.speak('今日は晴れです。', 'ja-JP');
   assert.equal(host.audio.length, 0);
   assert.equal(host.spoken[0].lang, 'ja-JP');
   assert.equal(state.source, 'Device voice');
   player.useRecordings(true);
+  assert.equal(state.recordingsAvailable, true);
   assert.equal(state.playing, false);
   await player.speak('今日は晴れです。', 'ja-JP');
   assert.equal(host.audio.length, 1);
@@ -145,4 +147,66 @@ test('late-loading voice lists are handled and playback errors are surfaced', as
   assert.equal(host.spoken.length, 1);
   host.spoken[0].onerror({ error: 'not-allowed' });
   assert.equal(state.playing, false); assert.match(state.message, /Press Listen again/);
+});
+
+function pausableHost() {
+  const host = fakeHost();
+  host.speechSynthesis.paused = false;
+  host.speechSynthesis.pause = () => host.speechSynthesis.paused = true;
+  host.speechSynthesis.resume = () => host.speechSynthesis.paused = false;
+  return host;
+}
+
+test('device audio pauses, resumes, slows the current sentence and retains queue language/title', async () => {
+  const { createSpeechPlayer } = await import('../web/src/lib/speech.js');
+  const host = pausableHost(), player = createSpeechPlayer(() => host);
+  let state; player.subscribe(value => state = value);
+  await player.play([{ text: 'A useful class note.', lang: 'en-GB' }, { text: '一歩ずつ。', lang: 'ja-JP' }], { title: 'Class notes' });
+  assert.equal(state.title, 'Class notes'); assert.equal(state.lang, 'en-GB');
+  player.pause(); assert.equal(state.paused, true); assert.equal(host.speechSynthesis.paused, true);
+  await player.resume(); assert.equal(state.paused, false); assert.equal(host.spoken.length, 1);
+  const oldEnd = host.spoken[0].onend;
+  await player.setSlow(true); assert.equal(host.spoken[1].rate, .75); assert.equal(state.slow, true);
+  oldEnd(); assert.equal(host.spoken.length, 2);
+  host.spoken[1].onend(); assert.equal(state.lang, 'ja-JP'); assert.equal(state.title, 'Class notes');
+  assert.equal(host.spoken[2].rate, .85 * .75);
+  player.pause(); player.stop(); assert.equal(state.playing, false); assert.equal(state.paused, false); assert.equal(host.speechSynthesis.paused, false);
+});
+
+test('changing device speed while paused does not resume or autoplay', async () => {
+  const { createSpeechPlayer } = await import('../web/src/lib/speech.js');
+  const host = pausableHost(), player = createSpeechPlayer(() => host);
+  let state; player.subscribe(value => state = value);
+  await player.speak('A note to reread.', 'en-US');
+  player.pause(); await player.setSlow(true);
+  assert.equal(state.paused, true); assert.equal(host.spoken.length, 1);
+  await player.resume(); assert.equal(state.paused, false); assert.equal(host.spoken.length, 2); assert.equal(host.spoken[1].rate, .75);
+});
+
+test('a late sentence-end callback cannot advance playback while paused', async () => {
+  const { createSpeechPlayer } = await import('../web/src/lib/speech.js');
+  const host = pausableHost(), player = createSpeechPlayer(() => host);
+  await player.play([{ text: 'First note.', lang: 'en-US' }, { text: 'Second note.', lang: 'en-US' }]);
+  player.pause(); host.spoken[0].onend(); assert.equal(host.spoken.length, 1);
+  await player.resume(); assert.equal(host.spoken.length, 2); assert.equal(host.spoken[1].text, 'Second note.');
+});
+
+test('recorded playback pauses and changes speed without replacing its audio or position', async () => {
+  const { createSpeechPlayer } = await import('../web/src/lib/speech.js');
+  const host = recordedHost(), player = createSpeechPlayer(() => host, [{ text: '一歩ずつ。', lang: 'ja-JP', file: '/step.mp3' }]);
+  let state; player.subscribe(value => state = value);
+  await player.speak('一歩ずつ。', 'ja-JP', 'Listen in Japanese');
+  const original = host.audio[0]; original.currentTime = 1.5;
+  player.pause(); await player.setSlow(true); assert.equal(original.paused, true); assert.equal(original.playbackRate, .9 * .75);
+  await player.resume(); assert.equal(original.paused, false); assert.equal(host.audio.length, 1); assert.equal(original.currentTime, 1.5);
+  assert.equal(state.lang, 'ja-JP'); assert.equal(state.paused, false);
+});
+
+test('a denied recording resume reports failure instead of pretending to play', async () => {
+  const { createSpeechPlayer } = await import('../web/src/lib/speech.js');
+  const host = recordedHost(), player = createSpeechPlayer(() => host, [{ text: 'Recorded.', lang: 'en-US', file: '/note.mp3' }]);
+  let state; player.subscribe(value => state = value);
+  await player.speak('Recorded.'); player.pause();
+  host.audio[0].play = () => Promise.reject(Error('denied'));
+  await player.resume(); assert.equal(state.playing, false); assert.match(state.message, /could not resume/);
 });

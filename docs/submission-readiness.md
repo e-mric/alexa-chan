@@ -1,8 +1,74 @@
-# Release and submission readiness — 12 October 2026
+# Release and submission readiness — updated 20 October 2026
+
+For the current milestone, source-workspace checks and handoff, read
+[project state](project-state.md). This page owns the release/owner checklist and
+dated release receipts; those receipts are not automatically refreshed by new code.
 
 **Local judging product: prepared and verified. Devpost entry: not yet ready to
 send.** The remaining account/publication steps are listed below, not hidden
-behind a claim of full production readiness. No submission has been sent.
+behind a claim of full production readiness. Draft fields are saved; no entry has
+been submitted.
+
+## Current preflight — 20 October
+
+The focused English → Japanese app now includes opaque readable surfaces, larger
+audio targets, WebP imagery, torii entry icons and safe formatted/original Markdown
+notes. Source gate: **78 tests passed**; refreshed clean-copy gate: **74 passed + four
+intentional recording skips**; Svelte zero diagnostics, build/runtime/web audits pass.
+[Current browser/audit evidence](persona-validation.md#remediation-and-installed-impeccable-audit--20-october-2026)
+owns details and limits; the older receipts below remain historical.
+
+**Confirmed by read-only GitHub inspection:** the judging repository was private,
+at `84c7906`, with only the owner and no pending invitations before this refresh.
+The owner authorized refreshing source, **not reviewer invitations or visibility**.
+The development workspace remains separate and dirty. Verify the new commit/CI
+after pushing; an older green workflow is not evidence for this revision.
+
+New video: **112 seconds, 1920×1080, 24fps, H.264/AAC**, approximately 6.1 MB,
+English Koichi narration plus motion-graphic captions over actual synthetic app
+captures. [Demo materials](submission-demo.md) identifies the reviewed local file.
+It still needs owner viewing and a public YouTube/Vimeo URL.
+
+The owner confirmed a current paid ElevenLabs plan. Only new video narration was
+generated under that confirmation; old free-credit clips stay out of judging code.
+Generated-art entitlement and final personal/team eligibility remain owner checks.
+
+Devpost MCP requires reauthentication; that connector was not retried. The owner
+completed browser sign-in. The existing DRAFT was inspected and name/pitch,
+short student-facing story, code link, Alexa+ track, no mini-challenges, testing
+instructions, tool feedback and owner-confirmed learning answers were saved.
+Video URL and media remain incomplete. Eligibility/final terms were not changed
+and Submit was never clicked. This does not claim refreshed MCP credentials.
+
+### Remaining before the entry is ready
+
+1. Finish draft media/technology tags and review the saved fields. The owner requested
+   a no-boxes visual proposal; do not describe that mockup as the implemented app.
+2. Owner reviews narration/video and clears art, then provides a public video URL.
+3. Owner grants required access to the private judging repo (or chooses a cleared
+   public licensed copy). No access settings will be changed by this refresh.
+4. Owner reviews all fields and decides when to submit. **Do not submit in this task.**
+
+### Local visual revision — 12 October
+
+The current working checkout has a Mobbin-informed visual/UX pass: compact agenda,
+shared Today/Notes/Memories labels, opt-in Japanese helpers with familiar-language
+labels, visual notebook collection, quiet reading and a unified audio player with
+language/source, pause/resume and slower playback. No private data was migrated.
+
+Local revision checks: **68 tests passed**, zero Svelte errors/warnings and a
+successful production build. Browser checks covered real MCP lookup without
+automatic capture, device pause/resume and slower-while-paused behavior, unchanged
+synthetic notes, unsaved-draft guards, opt-in review and reload persistence. A 390px
+breakpoint check for the agenda and Dutch notebook library had no horizontal
+overflow; that is not a physical-device or screen-reader certification.
+The new device-voice distribution copy also passed clean installs, **64 tests
+with four recording-catalogue checks deliberately skipped**, Svelte diagnostics
+and production build. The main checkout's MCP runtime and web audits remained clean.
+
+The GitHub commits/CI receipts, archive and 108-second video below describe the
+previous shipped snapshot, not this local visual revision. They need refreshing
+after owner review of the changed interface; no new video or push is claimed.
 
 ## Current release
 
@@ -58,8 +124,8 @@ learning outcomes remain unverified. This is a loopback pilot, not a hosted SaaS
 ## Source delivery notes
 
 The source checkout was committed locally using a Git implementation that does
-not require Xcode. Native Git is blocked by an unaccepted Xcode licence, and no
-reusable GitLab credential was available; **the latest source has not been pushed
+not require Xcode. At that release, native Git was blocked by an unaccepted Xcode
+licence, and no reusable GitLab credential was available; **the latest source has not been pushed
 to GitLab**. No licence agreement was accepted on the owner's behalf. Both private
 GitHub destinations are maintained separately; the judging copy omits provider
 audio and private data. Verify their automated checks before sharing.
@@ -72,7 +138,7 @@ the student-only storage preflight regression; current results are listed above.
 
 ## Official hackathon requirements
 
-Checked against the requested [rules](https://amazonappdev2026.devpost.com/rules),
+Rechecked read-only on **20 October 2026** against the requested [rules](https://amazonappdev2026.devpost.com/rules),
 [FAQ](https://amazonappdev2026.devpost.com/details/faqs) and
 [updates](https://amazonappdev2026.devpost.com/updates).
 
@@ -119,8 +185,8 @@ not import them or expose `/alexa`. `npm start` launches MCP; do not expose
    The live browser was logged out; remote draft/status remains unverified.
 4. Review the final entry and explicitly authorize submission; verify its receipt.
 
-The connected Devpost overview call returned an internal error. Prior local rules
-acknowledgment was preserved; neither registration nor submission was fabricated.
+The earlier connected overview returned an internal error; on 20 October the
+connector required reauthentication. Neither registration nor submission was fabricated.
 Aim to finish the owner steps by 21 October and retain a deadline buffer.
 
 **Official Devpost pages prevail over this helper if requirements change or differ.**
