@@ -32,15 +32,19 @@ test('responsive rider selection uses one optimised asset per viewport', async (
   }
 });
 
-test('intro leaves the scene transparent and its text backing stays readable over white', () => {
+test('intro uses feathered shading instead of text boxes and translucent chrome keeps contrast', () => {
   const source = fs.readFileSync(path.join(__dirname, '../web/src/lib/StudentMcp.svelte'), 'utf8');
   assert.match(source, /\.intro\{[^}]*background:transparent/);
-  const opacity = Number(source.match(/background:color-mix\(in srgb,var\(--ink\) (\d+)%,transparent\)/)?.[1]) / 100;
-  assert.ok(opacity > 0 && opacity < 1, 'Use translucent backing on text, not an opaque intro panel');
+  assert.match(source, /\.intro::before\{[^}]*radial-gradient\([^}]*transparent 100%/);
+  assert.doesNotMatch(source, /box-decoration-break|\.intro h1 span[^}]*background:/);
   const css = fs.readFileSync(path.join(__dirname, '../web/src/lib/identity.css'), 'utf8');
   const ink = css.match(/--ink:\s*(#[\da-f]{6})/i)[1];
   const paper = css.match(/--paper:\s*(#[\da-f]{6})/i)[1];
-  const whiteComposite = '#' + ink.slice(1).match(/../g)
-    .map(channel => Math.round(parseInt(channel, 16) * opacity + 255 * (1 - opacity)).toString(16).padStart(2, '0')).join('');
-  assert.ok((luminance(paper) + .05) / (luminance(whiteComposite) + .05) >= 4.5);
+  for (const percent of [...source.matchAll(/color-mix\(in srgb,var\(--ink\) (\d+)%,transparent\)/g)].map(match=>Number(match[1]))) {
+    const opacity = percent / 100;
+    assert.ok(opacity > 0 && opacity < 1);
+    const whiteComposite = '#' + ink.slice(1).match(/../g)
+      .map(channel => Math.round(parseInt(channel, 16) * opacity + 255 * (1 - opacity)).toString(16).padStart(2, '0')).join('');
+    assert.ok((luminance(paper) + .05) / (luminance(whiteComposite) + .05) >= 4.5, `${percent}% tint on white`);
+  }
 });

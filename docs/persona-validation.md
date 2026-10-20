@@ -240,11 +240,11 @@ not proven usability failures. The cyberpunk world is the accepted brief.
   while paused did not start it. Japanese notebook listening used **日本語 / Device voice**.
 - Actual date/section-label colour is now `#4f625f` on opaque `#f5f0e6`:
   **5.70:1**. Paper text on opaque ink is **12.74:1**; action text on paper **6.56:1**.
-  Navigation, status labels, expanded disclosures and footer have opaque backing.
-  The oversized intro panel was subsequently removed after owner feedback: compact
-  translucent text backings preserve contrast over a worst-case white pixel in a
-  new regression. The owner requested a no-boxes generated proposal; its feathered
-  shading/header treatment is **not yet implemented or measured**.
+  After owner review, intro boxes were replaced with localized feathered shading;
+  header/navigation/disclosures are translucent. A regression checks opaque token
+  ratios and translucent surface-core contrast over white, not every pixel of the
+  vignette fade. The original world images remain unchanged. The rendered desktop
+  and phone views were inspected for readability and rider visibility.
 - At 390px, Resume and Stop measured **44 × 44**, Slower **48.68 × 44**,
   Audio options **111.40 × 44**, Today **66.02 × 44**, Tomorrow **86.68 × 44**.
   Notebook/form controls use the shared 44px target. This is not an assertion that
@@ -277,6 +277,13 @@ Rendered notes reflowed at **320×740, 390×844, 768×900** with document widths
 305/375/753 respectively; desktop checked at 1280×800. Inspected consoles were
 empty. These are emulated viewport/pointer checks, not physical-device gestures.
 Source preview used isolated port 3004; a provider-free judging copy used 3005.
+
+The approved no-boxes home was checked at 320/390/768/1280px. A pseudo-element
+initially caused phone overflow; constraining its mobile right edge fixed it.
+Final document widths were 305/375/753 at 320/390/768px. The real MCP day still
+connected and Japanese stayed closed. Rebuilds caused two stale-module errors in
+an older open tab; reloading restored current assets. No new error was observed
+in the final smoke check. This is not a whole-scene pixel-contrast certification.
 
 ### Remaining findings and follow-up
 

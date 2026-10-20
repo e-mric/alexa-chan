@@ -1,9 +1,9 @@
 # English student demonstration
 
 Current owner-local draft, **20 October 2026**:
-`data/submission-2026-10-20/alexa-chan-demo-reviewed.mp4`.
+`data/submission-2026-10-20/alexa-chan-demo-final.mp4`.
 Verified: **112 seconds**, H.264/AAC, **1920 × 1080**, **24 fps**,
-**6,108,307 bytes** (~6.1 MB). English narration, chapter captions, animated
+**6,000,453 bytes** (~6.0 MB). English narration, chapter captions, animated
 progress/typography and architecture/end cards frame actual app captures.
 
 The source is an isolated, provider-free judging app with Noor's fictional day
@@ -11,7 +11,10 @@ and synthetic notes. Browser actions genuinely fetched, saved and reviewed data;
 the video edits holds and loops a short actual ride capture. It is not a continuous
 real-time recording or latency benchmark. No private notes, credentials, external
 music/footage or old ElevenLabs clips were included. One notebook crop was corrected
-after encoded-frame inspection. The first render is retained locally, not the final file.
+after encoded-frame inspection. The final home/ride capture reflects the approved
+feathered intro and translucent navigation. Earlier renders are retained locally,
+not the current delivery. Some later interaction shots predate that cosmetic pass;
+they show the same working tools and original-note behavior.
 
 New narration: owner-selected **Koichi**, voice `H8ZPDxbrPcks5hEsi2fq`,
 `eleven_v4`, **110.08 seconds**, approximately **1,545 credits**. The owner
@@ -45,8 +48,9 @@ public YouTube/Vimeo URL; no public video has been posted by this work.
 13. Formatted Markdown and exact-source reading/editing, with private backup boundary.
 14. A truthful architecture recap: SvelteKit/Three.js, real MCP, browser-only notes.
 
-`ffprobe` confirms the 112-second duration and codecs. Encoded meaning, notebook
-and architecture frames were visually checked. Audio was decoded end-to-end:
+`ffprobe` confirms the 112-second duration and codecs. Final encoded home and
+notebook frames were visually checked; earlier meaning/architecture checks retain
+the same capture/edit recipe. Final audio was decoded end-to-end:
 mean level approximately −16.9 dB, peak −1.3 dB; no silent track or clipping was
 detected by that check. This is not human pronunciation, full audiovisual timing
 or accessibility sign-off. The owner still needs to watch/listen to the full video.

@@ -76,8 +76,10 @@ The October visual pass follows **cinematic world, calm interface**. Original
 city/rider art stays atmospheric; warm ivory reading surfaces, petrol-blue chrome,
 vermilion actions and muted metadata define the shared visual language.
 
-**Accepted refinements, 20 October:** text over moving artwork has opaque petrol
-backing; reading surfaces are opaque ivory. Normal text targets at least 4.5:1;
+**Accepted refinements, 20 October:** preserve the visible rider and city. The
+intro uses localized feathered petrol shading, not rectangular text backings;
+header/navigation are translucent, while reading surfaces stay opaque ivory.
+Normal text targets at least 4.5:1;
 primary/audio controls target 44 × 44 CSS pixels. Shared semantic tokens own
 reading/action colours. Optimized WebP derivatives retain the source artwork;
 the ride initially loads only the viewport-appropriate rider atlas. A small

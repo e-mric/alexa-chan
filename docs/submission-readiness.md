@@ -11,7 +11,7 @@ been submitted.
 
 ## Current preflight — 20 October
 
-The focused English → Japanese app now includes opaque readable surfaces, larger
+The focused English → Japanese app now includes opaque reading surfaces, larger
 audio targets, WebP imagery, torii entry icons and safe formatted/original Markdown
 notes. Source gate: **78 tests passed**; refreshed clean-copy gate: **74 passed + four
 intentional recording skips**; Svelte zero diagnostics, build/runtime/web audits pass.
@@ -21,10 +21,12 @@ owns details and limits; the older receipts below remain historical.
 **Confirmed by read-only GitHub inspection:** the judging repository was private,
 at `84c7906`, with only the owner and no pending invitations before this refresh.
 The owner authorized refreshing source, **not reviewer invitations or visibility**.
-The development workspace remains separate and dirty. Verify the new commit/CI
-after pushing; an older green workflow is not evidence for this revision.
+The development workspace remains separate and dirty. Refresh **`d26db33`** was
+pushed and [its CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39465766000).
+The owner-approved no-boxes/header follow-up is being verified separately. Read-only
+access checks still show private, owner-only and no pending invitations.
 
-New video: **112 seconds, 1920×1080, 24fps, H.264/AAC**, approximately 6.1 MB,
+New video: **112 seconds, 1920×1080, 24fps, H.264/AAC**, approximately 6.0 MB,
 English Koichi narration plus motion-graphic captions over actual synthetic app
 captures. [Demo materials](submission-demo.md) identifies the reviewed local file.
 It still needs owner viewing and a public YouTube/Vimeo URL.
@@ -36,14 +38,16 @@ Generated-art entitlement and final personal/team eligibility remain owner check
 Devpost MCP requires reauthentication; that connector was not retried. The owner
 completed browser sign-in. The existing DRAFT was inspected and name/pitch,
 short student-facing story, code link, Alexa+ track, no mini-challenges, testing
-instructions, tool feedback and owner-confirmed learning answers were saved.
-Video URL and media remain incomplete. Eligibility/final terms were not changed
+instructions, tool feedback, 14 technology tags and owner-confirmed learning answers
+were saved.
+Five synthetic real-app screenshots with captions are saved. Video URL and
+thumbnail verification remain. Eligibility/final terms were not changed
 and Submit was never clicked. This does not claim refreshed MCP credentials.
 
 ### Remaining before the entry is ready
 
-1. Finish draft media/technology tags and review the saved fields. The owner requested
-   a no-boxes visual proposal; do not describe that mockup as the implemented app.
+1. Finish draft media and review the saved fields. The owner approved the no-boxes
+   proposal; the actual implementation uses CSS shading, not a flattened mockup.
 2. Owner reviews narration/video and clears art, then provides a public video URL.
 3. Owner grants required access to the private judging repo (or chooses a cleared
    public licensed copy). No access settings will be changed by this refresh.

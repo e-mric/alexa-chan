@@ -3,14 +3,17 @@
 Updated 20 October 2026. Draft only; owner review and the public video URL are
 required. Browser sign-in confirmed the existing DRAFT. Name, pitch, public story,
 source link, track and additional technical answers were saved without submitting.
-Video URL, screenshots/thumbnail, fuller technology tags and owner review remain.
+Fourteen technology tags and five captioned actual-app screenshots were saved.
+Video URL, thumbnail verification and owner review remain.
 
 ## Name and tagline
 
 Name: Alexa-chan
 
 Pitch: Your next chapter starts between classes. Take on your day, keep your notes,
-and discover Japanese along the way. One phrase at a time. Let’s go!
+and discover Japanese along the way. One phrase at a time. 行きましょう! (Ikimashou!/Let's go!)
+
+The Japanese ending is the owner's subsequent edit in the saved Devpost pitch.
 
 ## Public project story
 

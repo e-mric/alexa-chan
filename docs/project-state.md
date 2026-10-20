@@ -25,13 +25,12 @@ judging-repository authorization.
   opt-in memories. Settings focus on backup/privacy, not parked calendar import.
 - English presentation does not overwrite older stored FR/NL/DE preferences.
   MCP language schema is English only; Japanese language parts remain explicit.
-- Opaque reading/chrome surfaces and shared contrast tokens; larger audio targets;
+- Opaque reading surfaces and shared contrast tokens; larger audio targets;
   viewport-selected WebP rider and smaller Fuji/notebook cover derivatives.
-- The oversized intro panel was removed: its container is transparent, with
-  compact translucent text backings. Desktop rider visibility was checked.
-  The owner dislikes the remaining rectangular backings and requested a generated
-  proposal with feathered shading and a translucent header; that proposal is
-  **not implemented or approved yet**. Do not call the visual direction finished.
+- The owner approved the generated no-boxes direction. It is now implemented:
+  localized feathered shading behind the intro, translucent header/navigation,
+  unchanged world artwork and opaque ivory task cards. Desktop and narrow
+  layouts were checked; phone spacing leaves the rider below the title.
 - Saved Markdown has Formatted/Original text views. Exact source still owns edits
   and backups. Raw HTML is inert; remote images and unsafe/relative links are inactive.
 - Device audio stays the judging-app default. The global player now reflects whether
@@ -54,13 +53,16 @@ judging-repository authorization.
   synthetic French-preference backup recovery with English UI and unchanged text.
 - Rendered notebook reflow checked at 320/390/768px and desktop at 1280px. Audio
   targets measured at least 44 × 44. Metadata contrast **5.70:1**; opaque paper on
-  ink **12.74:1**. Inspected consoles empty. Owner data untouched.
+  ink **12.74:1**. Earlier inspected consoles were empty; a long-lived preview tab
+  later recorded stale chunk fetches during rebuilds, resolved on reload. No new
+  error appeared in the final MCP smoke check. Owner data untouched.
 - Impeccable **4.7.0** installed; source detector ran, returning **10 style warnings**.
   Follow-up manual score **14/20**, not automatic clearance or WCAG certification.
   [Audit evidence and limits](persona-validation.md#remediation-and-installed-impeccable-audit--20-october-2026).
 - Eight new regressions cover semantic colour ratios, responsive asset budgets,
   English presentation/schema compatibility, restricted Markdown rendering and
-  transparent-intro/text-backing contrast over a worst-case white background.
+  no-boxes intro structure and translucent surface-core contrast over white.
+  This does not numerically certify every pixel of the feathered edge.
   Existing audio tests also cover actual recording availability.
 
 The earlier 17 October gate was 70 tests; it is not the latest revision's receipt.
@@ -84,8 +86,9 @@ made. The owner completed browser sign-in. The existing **DRAFT** was inspected
 and its name, shōnen-style pitch, simplified student story, GitHub link, Alexa+
 track, no mini-challenges, testing instructions and five feedback answers saved.
 The owner's learning/career answers are Significant/Yes. Eligibility attestations
-and final terms were not changed; Submit was never clicked. Video URL, gallery,
-thumbnail, full technology tags and final owner review remain. These are browser
+and final terms were not changed; Submit was never clicked. Five actual synthetic
+app screenshots with captions and 14 technology/creative-tool tags were saved.
+Video URL, thumbnail verification and final owner review remain. These are browser
 receipts, not a claim that connector credentials were refreshed.
 
 The owner explicitly requested the official pages be rechecked. Read-only website
@@ -97,12 +100,13 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. Review the scoped diff and final clean package, refresh the authorized private
-   judging repo, verify the exact commit/CI and retain the current access settings.
-2. Owner: review the generated no-boxes proposal before further UI changes; then
-   refresh matching video captures. Verify eligibility, approve the video and art
-   entitlement, and provide the public video link and reviewer access.
-3. Finish draft media/technology tags and review saved fields. Keep unknown
+1. The clean judging refresh `d26db33` was pushed and its GitHub CI passed.
+   The approved no-boxes follow-up also passes source/clean local gates; verify
+   its own remote commit/CI rather than reusing the earlier CI receipt.
+   The repository remains private, owner-only, with no pending invitations.
+2. Matching video export/encoded-frame/audio checks are complete. Owner: verify eligibility, approve the video
+   and art entitlement, and provide the public video link and reviewer access.
+3. Finish draft media and review saved fields. Keep unknown
    URLs/claims visibly incomplete; never click Submit.
 4. Run a real seven-day notebook trial and competent-speaker review after this
    milestone. More integrations, native apps and messaging remain out of scope.
