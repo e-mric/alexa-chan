@@ -88,7 +88,8 @@ track, no mini-challenges, testing instructions and five feedback answers saved.
 The owner's learning/career answers are Significant/Yes. Eligibility attestations
 and final terms were not changed; Submit was never clicked. Five actual synthetic
 app screenshots with captions and 14 technology/creative-tool tags were saved.
-Video URL, thumbnail verification and final owner review remain. These are browser
+The actual-app thumbnail is also verified on a fresh overview page. Video URL
+and final owner review remain. These are browser
 receipts, not a claim that connector credentials were refreshed.
 
 The owner explicitly requested the official pages be rechecked. Read-only website
@@ -100,14 +101,15 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. The clean judging refresh `d26db33` was pushed and its GitHub CI passed.
-   The approved no-boxes follow-up also passes source/clean local gates; verify
-   its own remote commit/CI rather than reusing the earlier CI receipt.
+1. The clean judging refresh `d26db33` and approved no-boxes follow-up
+   **`071d0e6`** were pushed; both exact GitHub CI runs passed. The latter's
+   [runtime/UI gate receipt](https://github.com/e-mric/alexa-chan-submission/actions/runs/39468070802)
+   covers the approved implementation, not only a documentation snapshot.
    The repository remains private, owner-only, with no pending invitations.
 2. Matching video export/encoded-frame/audio checks are complete. Owner: verify eligibility, approve the video
    and art entitlement, and provide the public video link and reviewer access.
-3. Finish draft media and review saved fields. Keep unknown
-   URLs/claims visibly incomplete; never click Submit.
+3. Owner: review saved draft fields, provide the public video URL and complete
+   personal eligibility/terms only when ready. Never click Submit in this task.
 4. Run a real seven-day notebook trial and competent-speaker review after this
    milestone. More integrations, native apps and messaging remain out of scope.
 

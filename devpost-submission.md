@@ -3,8 +3,8 @@
 Updated 20 October 2026. Draft only; owner review and the public video URL are
 required. Browser sign-in confirmed the existing DRAFT. Name, pitch, public story,
 source link, track and additional technical answers were saved without submitting.
-Fourteen technology tags and five captioned actual-app screenshots were saved.
-Video URL, thumbnail verification and owner review remain.
+Fourteen technology tags, five captioned actual-app screenshots and the thumbnail
+were saved and verified. The public video URL and owner review remain.
 
 ## Name and tagline
 

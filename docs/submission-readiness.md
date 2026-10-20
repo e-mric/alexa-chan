@@ -23,8 +23,9 @@ at `84c7906`, with only the owner and no pending invitations before this refresh
 The owner authorized refreshing source, **not reviewer invitations or visibility**.
 The development workspace remains separate and dirty. Refresh **`d26db33`** was
 pushed and [its CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39465766000).
-The owner-approved no-boxes/header follow-up is being verified separately. Read-only
-access checks still show private, owner-only and no pending invitations.
+The owner-approved no-boxes/header follow-up **`071d0e6`** was also pushed and
+[its exact CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39468070802).
+Read-only access checks still show private, owner-only and no pending invitations.
 
 New video: **112 seconds, 1920×1080, 24fps, H.264/AAC**, approximately 6.0 MB,
 English Koichi narration plus motion-graphic captions over actual synthetic app
@@ -40,13 +41,13 @@ completed browser sign-in. The existing DRAFT was inspected and name/pitch,
 short student-facing story, code link, Alexa+ track, no mini-challenges, testing
 instructions, tool feedback, 14 technology tags and owner-confirmed learning answers
 were saved.
-Five synthetic real-app screenshots with captions are saved. Video URL and
-thumbnail verification remain. Eligibility/final terms were not changed
+Five synthetic real-app screenshots with captions and an actual-app thumbnail
+are saved and verified. The public video URL remains. Eligibility/final terms were not changed
 and Submit was never clicked. This does not claim refreshed MCP credentials.
 
 ### Remaining before the entry is ready
 
-1. Finish draft media and review the saved fields. The owner approved the no-boxes
+1. Review the saved fields and add the public video URL. The owner approved the no-boxes
    proposal; the actual implementation uses CSS shading, not a flattened mockup.
 2. Owner reviews narration/video and clears art, then provides a public video URL.
 3. Owner grants required access to the private judging repo (or chooses a cleared
