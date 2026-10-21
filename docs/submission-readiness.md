@@ -1,4 +1,4 @@
-# Release and submission readiness — updated 20 October 2026
+# Release and submission readiness — updated 21 October 2026
 
 For the current milestone, source-workspace checks and handoff, read
 [project state](project-state.md). This page owns the release/owner checklist and
@@ -9,7 +9,25 @@ send.** The remaining account/publication steps are listed below, not hidden
 behind a claim of full production readiness. Draft fields are saved; no entry has
 been submitted.
 
-## Current preflight — 20 October
+## Current preflight — 21 October
+
+**Confirmed:** source `a4f4205` was pushed to GitLab, then the separately authorized
+clean GitHub judging refresh was pushed as **`1c36f2bd1eff8f40f565e0fce2bfc3bcaca4382c`**.
+[Its exact CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39672294741).
+The fresh allowlisted distribution passed clean installs and `npm run verify`:
+**79 passed, four intentional recording-catalogue skips**, zero Svelte diagnostics,
+production build and clean runtime/full-web audits. The source gate passed all 83.
+
+This refresh adds focused long-form notes, a separate optional Japanese card with
+default-visible pronunciation, and contextual listening under More. A built-copy
+browser smoke confirmed actual local MCP connection, synthetic Markdown notes and
+the separate card/device-only disclosure. No private notes, provider recordings,
+parked documents, credentials or runtime stores entered the 118-file release.
+The repository remains private and owner-only, with no pending invitations.
+No reviewer access, visibility or Devpost status was changed. The existing video
+and screenshots still predate this reader pass; the shortcut diagram is a proposal.
+
+### Previous preflight — 20 October
 
 The focused English → Japanese app now includes opaque reading surfaces, larger
 audio targets, WebP imagery, torii entry icons and safe formatted/original Markdown
@@ -130,8 +148,9 @@ learning outcomes remain unverified. This is a loopback pilot, not a hosted SaaS
 
 The source checkout was committed locally using a Git implementation that does
 not require Xcode. At that release, native Git was blocked by an unaccepted Xcode
-licence, and no reusable GitLab credential was available; **the latest source has not been pushed
-to GitLab**. No licence agreement was accepted on the owner's behalf. Both private
+licence, and no reusable GitLab credential was available. That historical blocker
+is resolved: source `a4f4205` was pushed to GitLab on 21 October. No licence
+agreement was accepted on the owner's behalf. Both private
 GitHub destinations are maintained separately; the judging copy omits provider
 audio and private data. Verify their automated checks before sharing.
 
@@ -185,9 +204,9 @@ not import them or expose `/alexa`. `npm start` launches MCP; do not expose
    `anishamalde`, `mosesroth`, `emersonsklar` and `testing@devpost.com`.
    Private invitations expire in seven days: issue near submission, not now.
    No invitations or visibility change were performed.
-3. Sign in to Devpost, verify registration and personal/team eligibility, and
-   complete the form with actual URLs, testing instructions, feedback and track.
-   The live browser was logged out; remote draft/status remains unverified.
+3. Review the browser-saved Devpost draft, personal/team eligibility and actual
+   URLs. The owner completed sign-in on 20 October and draft fields were saved;
+   the public video URL and final personal attestations remain owner steps.
 4. Review the final entry and explicitly authorize submission; verify its receipt.
 
 The earlier connected overview returned an internal error; on 20 October the

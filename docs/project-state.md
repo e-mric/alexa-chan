@@ -19,6 +19,8 @@ judging-repository authorization.
 The owner separately authorized **commit and push on 21 October**. The configured
 source remote is GitLab `origin`, branch `main`; that operation does not refresh
 the separate GitHub judging mirror or authorize submission/access changes.
+Source commit `a4f4205b4fcc36889683f7f17d35febdbb6eedae` was pushed to GitLab.
+The owner then separately requested the GitHub refresh recorded below.
 
 On 21 October the owner approved the generated notes-first reader/separate-card
 design, pronunciation visible by default, and contextual audio without a duplicate
@@ -67,8 +69,18 @@ playback were exercised. Impeccable found no warnings in the new card/global-pla
 pass; the broader shared notes/journey scan retained seven legacy/style warnings.
 This is not a physical-device, native-speaker or accessibility certification.
 
-The source checkpoint does **not** refresh the separate judging repository.
-Verify the Git remote/revision rather than treating this page as a push receipt.
+**21 October, confirmed judging refresh:** allowlisted source from `a4f4205`
+was pushed separately as **`1c36f2bd1eff8f40f565e0fce2bfc3bcaca4382c`** to
+[the judging repository](https://github.com/e-mric/alexa-chan-submission).
+[Its exact GitHub CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39672294741).
+Fresh clean installs and `npm run verify` passed locally: **79 passed, four
+intentional recording-catalogue skips**, zero Svelte diagnostics, build and clean
+production-runtime/full-web audits. The 118-file allowlist had no private data,
+provider recordings, parked documents or extra tracked files. Browser smoke on
+the built clean copy at port 3007 confirmed actual local MCP connection, synthetic
+Markdown save/read, separate Japanese card, default pronunciation and device-only
+listening disclosure. This is not an Echo/Alexa+ device test.
+The destination remains private, owner-only, with no pending invitations.
 The existing submission video/screenshots also predate this reader pass.
 Port 3006 contains explicitly synthetic test notebooks, including a UI-check note
 with harmless HTML/image-blocking samples; these are not seeded into the product.
@@ -135,10 +147,8 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. The clean judging refresh `d26db33` and approved no-boxes follow-up
-   **`071d0e6`** were pushed; both exact GitHub CI runs passed. The latter's
-   [runtime/UI gate receipt](https://github.com/e-mric/alexa-chan-submission/actions/runs/39468070802)
-   covers the approved implementation, not only a documentation snapshot.
+1. The latest clean judging refresh **`1c36f2b`** includes the focused notes/card
+   and contextual listening pass; its exact CI passed (receipt above).
    The repository remains private, owner-only, with no pending invitations.
 2. Matching video export/encoded-frame/audio checks are complete. Owner: verify eligibility, approve the video
    and art entitlement, and provide the public video link and reviewer access.
