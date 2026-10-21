@@ -50,7 +50,7 @@ the video voice, not the app's listening defaults or recording catalogue.
 - **21 October:** the primary fictional student is now **Kaela**, including
   onboarding, page title, timetable heading and linked routes. This is copy only:
   storage keys, original notes and historical persona-test identities are unchanged.
-  This rename is included in the verified 22 October release candidate below.
+  This rename is included in the verified/pushed 22 October release below.
 - `/` and `/student-mcp`: actual SDK/Streamable HTTP MCP, labelled fictional
   rolling timetable, explicit phrase capture and server-persistent review.
 - `/student` and `/student-ride`: browser-local original notebooks and separate
@@ -76,6 +76,17 @@ the video voice, not the app's listening defaults or recording catalogue.
   Alexa+ device connection is claimed. [Engineering](engineering.md) maps ownership.
 
 ## Verification and audit
+
+**22 October publication receipt:** source checkpoint
+**`ffd9e1bd871b3d4dd77b5e6134f79c4753d65a57`** was pushed to GitLab `origin/main`.
+The clean 118-file judging refresh was pushed to GitHub `main` as
+**`83e5ca75c7b2c146ec0bbf9cf7d5e07fd84e2775`**.
+[Its exact Linux CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39691282144).
+The runtime now includes Kaela, the rendered regression and matching pitch/testing
+docs. Only the source workspace's private workflow-state file remains outside the
+scoped commits. Media, private data and recordings were not added to the clean
+repository. Later receipt commits change documentation only; they do not alter
+the runtime verified at these checkpoints. No access or Devpost changes occurred.
 
 **22 October release candidate, Node 24.20.0:** source `npm run verify` passed
 **84 tests**, zero Svelte errors/warnings, build and clean production-runtime/full-web
@@ -187,7 +198,8 @@ is `data/submission-2026-10-22/Alexa-chan-Devpost-Demo.mp4`; source media is pre
 [Demo materials](submission-demo.md) owns exact files, provenance and QA; the
 [judge guide](mcp-judge-trial.md) maps intended turns to working web controls.
 
-**22 October pre-refresh read-only publication check:** GitLab `main` resolved to
+**22 October pre-refresh read-only publication check (superseded by the receipt
+above):** GitLab `main` resolved to
 `a4f4205b4fcc36889683f7f17d35febdbb6eedae`. The judging GitHub `main` resolves to
 docs-only `90f7e74520a00104def8514d83bfba344fcb48a4`; its exact CI succeeded.
 The remote `StudentMcp.svelte` still renders **MEET NOOR / Try Noor’s day**.
@@ -238,9 +250,9 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. The owner authorized the verified 22 October Kaela source push and clean GitHub
-   refresh. Record the exact published revisions/CI after those operations; do not
-   treat the earlier `1c36f2b`/`90f7e74` receipts as proof of this candidate's publication.
+1. The verified Kaela runtime is pushed to both repositories, with exact GitHub CI
+   passing as recorded above. Keep the private workflow-state change uncommitted;
+   do not mistake the ignored local video for a public submission link.
 2. Review the new 78-second female-voice film, not the previous male-narrated cuts.
    Owner: verify eligibility, approve the video/art and provide the public link/reviewer access.
 3. Owner: review saved draft fields, provide the public video URL and complete

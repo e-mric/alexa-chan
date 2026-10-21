@@ -11,14 +11,17 @@ been submitted.
 
 ## Current preflight — 22 October
 
-**22 October release candidate:** primary student renamed to **Kaela**, with a rendered
+**22 October verified release:** primary student renamed to **Kaela**, with a rendered
 regression test and unchanged storage. Source `npm run verify` rerun: **84 passed**;
 fresh provider-free copy: **80 passed + four intentional recording skips**,
 zero Svelte diagnostics, build and clean production-runtime/full-web audits.
-The owner authorized committing/pushing this candidate and refreshing the clean
-judging repository. Exact publication/CI receipts must follow; local checks alone
-are not a push receipt. Local Devpost copy was updated; remote draft fields and
-screenshots were not changed for Kaela.
+Source checkpoint **`ffd9e1bd871b3d4dd77b5e6134f79c4753d65a57`** was pushed to
+GitLab `origin/main`; clean GitHub refresh
+**`83e5ca75c7b2c146ec0bbf9cf7d5e07fd84e2775`** was pushed to judging `main`.
+[That exact CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39691282144).
+All 118 release files matched the tested provider-free package, with no extra
+tracked files. Subsequent receipt commits are documentation-only. Local Devpost
+copy was updated; remote draft fields/screenshots were not changed for Kaela.
 
 Current owner-local video: **78-second female-voice Kaela manga story**. The central
 pitch is Alexa helping her day first, with Japanese inside that conversation only
@@ -41,7 +44,7 @@ device or general conversational-agent test. Runtime code is unchanged by the
 on 22 October; the isolated port-3012 built-copy smoke also confirmed the MCP loop,
 unchanged synthetic Markdown and separate optional Japanese card.
 
-**Pre-refresh read-only remote check, 22 October:** GitLab `main` was `a4f4205`; GitHub
+**Pre-refresh read-only remote check, 22 October (historical):** GitLab `main` was `a4f4205`; GitHub
 judging `main` is docs-only `90f7e74`, with passing exact CI but the older Noor
 runtime. It is private, owner-only, with no pending invitations. The Kaela changes
 and current pitch/docs were still local then. A new Devpost live read was blocked by
@@ -136,7 +139,7 @@ The GitHub commits/CI receipts, archive and 108-second video below describe the
 previous shipped snapshot, not this local visual revision. They need refreshing
 after owner review of the changed interface; no new video or push is claimed.
 
-## Current release candidate
+## Current release
 
 The main example is Kaela's university day. Public-facing navigation, onboarding
 and copy do not mention the parked external programme. Personal student notes
