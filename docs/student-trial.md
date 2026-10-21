@@ -13,8 +13,10 @@ or private calendar is connected. You can also use your own notes entirely local
 5. Reload and reconnect: the saved server review remains.
 6. Open **Notes** (English interface), create a notebook,
    paste a few class notes and save. A calendar is optional.
-7. Reread it. Japanese starts closed; open only when curious. Save a phrase if
-   useful, and export a backup from **Settings & backup** before changing browser/device.
+7. Reread it in the focused reader. **A little Japanese** opens a separate optional
+   card. Pronunciation starts visible; meaning waits for **Reveal meaning**. Only
+   **Keep this phrase** saves it. **Back to your note** restores reading position.
+   Export a backup from **Settings & backup** before changing browser/device.
 
 Today · Notes · Memories are the consistent navigation. Example-day memories
 live on the local MCP server; personal notebook memories live in this browser.
@@ -34,10 +36,14 @@ Other languages in original notes are not automatically detected or translated.
 The shared player shows the active text, language and source. Pause/resume, stop
 and slower playback are available. Changing device-speech speed restarts the
 current sentence; changing it while paused waits until you choose Resume.
+In the focused reader/card, no idle floating Audio options button competes with
+Listen. Use **More → Listening tools** in the reader, or **More** on the card,
+for page reading, selected text and text-picking. Playback still shows transport;
+Done/Escape closes the tools and returns focus. Other views keep their audio entry.
 
 ## Markdown notes
 
-Paste or import `.md` text, then save. **Formatted** displays headings, lists,
+Paste or import `.md` text, then save. Under **More**, **Formatted** displays headings, lists,
 emphasis, quotes, code and tables; **Original text** shows the exact saved source.
 Editing and backup always use that source. Raw HTML is escaped, unsafe/relative
 links are inactive, and image URLs never load automatically. Allowed HTTP(S)/email

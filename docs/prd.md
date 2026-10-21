@@ -1,6 +1,6 @@
 # Alexa-chan — Product Requirements Document
 
-Version 3.2 · 20 October 2026 · Owner: Emeric Van Frausum
+Version 3.3 · 21 October 2026 · Owner: Emeric Van Frausum
 
 ## Mission
 
@@ -93,12 +93,22 @@ ordinary back controls and external links keep conventional directional cues.
   visible; expanded limitations and real protocol proof are disclosed below.
 - A small Japanese phrase can be heard immediately. Optional helpers expand only
   when curious: Meaning · Iké, More detail · Motto, How to ask · Nanté.
-- Notebook collections use existing original artwork as quiet covers, real dates
-  and literal previews. Reading uses a comfortable measure; blank preparation and
-  takeaway sections do not dominate the saved note.
+- **Accepted decision, 21 October:** student collections use quiet title/date/preview
+  cards without repeated artwork. Opening a notebook gives it a focused ivory reader,
+  without the ride or surrounding navigation competing with long notes. Original
+  Markdown and storage stay unchanged. Blank preparation/takeaway sections stay hidden.
+- The reader's **A little Japanese** entry opens a separate optional card screen,
+  not a lesson below a long document. Returning restores reading position and focus.
+  Pronunciation starts visible, with an option to hide it; meaning starts unrevealed.
+  Only **Keep this phrase** captures a memory. This is a curated companion phrase,
+  not an automatically generated translation of the note.
 - One global player shows the active text, language and source, with pause/resume,
   stop and slower playback. Changing device-speech speed restarts the current
   spoken sentence; changing it while paused must not autoplay. No fake timeline.
+- **Accepted decision, 21 October:** focused notes/cards use contextual Listen actions
+  and show the floating transport only during playback. Advanced page/text reading
+  remains under **More**; errors and active text-picking still show explicit feedback.
+  Other views retain their existing global audio entry.
 - First use offers a useful example or private notes directly, with no new account,
   lengthy questionnaire or required Japanese lesson. No reference artwork is copied.
 
@@ -108,6 +118,14 @@ Interaction references inspected through Mobbin: [Amie](https://mobbin.com/scree
 [Matter](https://mobbin.com/screens/dd74962c-5184-459c-9281-12e2c19bb44b),
 [Vizcom](https://mobbin.com/sites/sections/ea8b50e2-1c36-4925-bf02-59d901080f1a).
 These are design references, not evidence that the proposed patterns improve outcomes.
+The 21 October notes/card refinement also inspected
+[hilos](https://mobbin.com/screens/55536f55-3dc0-47d3-b4a4-104c1c867f6a),
+[Quizlet](https://mobbin.com/screens/a6fa907d-6b71-4ae5-89d8-0c67e196bd09) and
+[CapWords](https://mobbin.com/screens/6a6db198-c314-44a6-bc3d-8d8beac946b8).
+**Proposal, not implemented:** a small branching diagram maps the app shortcuts
+Iké → Meaning, Motto → More detail and Nanté → How to ask. The owner confirmed
+these labels and requested a generated mockup; final diagram approval and the
+notebook-specific Nanté interaction remain separate from the working reader/card.
 Audio uses the documented device APIs for [pause](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/pause),
 [resume](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/resume)
 and [recorded playback speed](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate);

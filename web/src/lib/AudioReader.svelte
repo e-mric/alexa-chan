@@ -1,14 +1,20 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import { afterNavigate } from '$app/navigation';
   import { speech } from './speech.js';
   import { studentCopy } from './student-copy.js';
-  import { audioLanguage, audioCopy } from './audio-copy.js';
+  import { audioLanguage, audioCopy, focusedListening, audioTools, openAudioTools } from './audio-copy.js';
   const t = $derived(audioCopy[$audioLanguage]);
   const spokenLanguage = $derived(({ en: 'English', ja: '日本語', fr: 'Français', nl: 'Nederlands', de: 'Deutsch' })[$speech.lang?.slice(0,2)] || $speech.lang || '');
   let picking = $state(false), selection = $state(''), selectionLang = $state('en-US');
-  let expanded = $state(false);
-  afterNavigate(() => { speech.stop(); picking = false; selection = ''; });
+  let toolsPanel = $state();
+  $effect(() => { if ($audioTools.open) tick().then(() => toolsPanel?.focus({ preventScroll: true })); });
+  afterNavigate(() => { speech.stop(); picking = false; selection = ''; audioTools.set({ open: false, trigger: null }); });
+  async function closeTools() {
+    const trigger = $audioTools.trigger;
+    audioTools.set({ open: false, trigger: null });
+    await tick(); trigger?.focus({ preventScroll: true });
+  }
   function language(element) { return element?.closest('[lang]')?.lang || 'en-US'; }
   function readPage() {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -43,7 +49,7 @@
       const text = element.getAttribute('aria-label') || element.textContent;
       speech.speak(text, language(element), t.choose);
     }
-    function escape(event) { if (event.key === 'Escape') { picking = false; speech.stop(); } }
+    function escape(event) { if (event.key === 'Escape') { picking = false; speech.stop(); if ($audioTools.open) closeTools(); } }
     document.addEventListener('selectionchange', rememberSelection);
     document.addEventListener('click', pick, true);
     document.addEventListener('keydown', pick, true);
@@ -64,18 +70,18 @@
       <div class="transport"><button class="pause" aria-label={$speech.paused ? t.resume : t.pause} onclick={() => $speech.paused ? speech.resume() : speech.pause()}>{$speech.paused ? '▶' : 'Ⅱ'}</button><button class="speed" aria-pressed={$speech.slow} title={t.slowHelp} onclick={() => speech.setSlow(!$speech.slow)}>{t.slower}</button><button class="stop" aria-label={t.stop} onclick={() => speech.stop()}>■</button></div>
     </div>
   {/if}
-  <button class="toggle" aria-expanded={expanded} onclick={() => expanded = !expanded}>♪ {t.options}</button>
-  {#if expanded}
-    <div class="panel">
-      <p>{t.title}</p>
-      <button onclick={readPage}>{t.page}</button>
-      <button aria-pressed={picking} onclick={() => { picking = !picking; speech.stop(); }}>{picking ? t.finish : t.choose}</button>
-      <button disabled={!selection} onclick={() => speech.speak(selection, selectionLang, t.selection)}>{t.selection}</button>
+  {#if !$focusedListening}<button class="toggle" aria-expanded={$audioTools.open} onclick={event => $audioTools.open ? closeTools() : openAudioTools(event.currentTarget)}>♪ {t.options}</button>{/if}
+  {#if $audioTools.open}
+    <section class="panel" aria-label={t.options} tabindex="-1" bind:this={toolsPanel}>
+      <div class="tools-heading"><p>{t.options}</p><button onclick={closeTools}>{t.done}</button></div>
+      <button onclick={() => { closeTools(); readPage(); }}>{t.page}</button>
+      <button aria-pressed={picking} onclick={() => { picking = !picking; speech.stop(); closeTools(); }}>{picking ? t.finish : t.choose}</button>
+      <button disabled={!selection} onclick={() => { closeTools(); speech.speak(selection, selectionLang, t.selection); }}>{t.selection}</button>
       <small>{picking ? t.picking : t.help}</small>
       <small>{$speech.recordingsAvailable ? t.note : studentCopy[$audioLanguage].deviceAudio}</small>
-    </div>
+    </section>
   {/if}
-  {#if picking && !expanded}<p class="status">{t.choose} · <button onclick={() => picking = false}>{t.done}</button></p>{/if}
+  {#if picking && !$audioTools.open}<p class="status">{t.choose} · <button onclick={() => picking = false}>{t.done}</button></p>{/if}
   {#if $speech.message}<p class="status" role="status">{$speech.message}</p>{/if}
 </aside>
 <style>
@@ -84,5 +90,6 @@
   .player{display:flex;align-items:center;gap:12px;width:min(550px,calc(100vw - 28px));box-sizing:border-box;padding:12px;background:var(--ink);border:1px solid var(--border);box-shadow:0 10px 40px #071a3260;border-radius:12px}.player-art{display:flex;align-items:center;justify-content:center;background:var(--signal);border-radius:7px;font-size:27px;flex-shrink:0;width:48px;height:56px}.now-playing{min-width:0;flex:1}.player-language{font-size:11px;color:var(--amber)}.now-playing strong{display:block;font-size:12px;font-weight:500;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.excerpt{display:block;font-size:12px;color:var(--muted-on-dark);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.now-playing small{font-size:11px;color:var(--muted-on-dark)}.transport{display:grid;grid-template-columns:44px auto 44px;gap:6px;align-items:center}.transport button{border:0;color:var(--paper);background:#ffffff0c;border-radius:6px;padding:6px;font-size:12px}.transport .pause{font-size:17px;background:var(--paper);color:var(--ink)}.transport .speed[aria-pressed=true]{background:var(--signal)}.transport .stop{background:transparent}
   .toggle{border:1px solid var(--border);background:var(--ink);border-radius:22px;color:inherit;padding:8px 14px;font-size:12px}.panel{position:absolute;bottom:58px;left:50%;transform:translateX(-50%);width:min(310px,calc(100vw - 28px));max-height:calc(100svh - 190px);overflow:auto;box-sizing:border-box;padding:18px;border-radius:12px;background:var(--ink);border:1px solid var(--border);box-shadow:0 8px 24px #08192370;display:grid;gap:8px}.audio-reader:has(.player) .panel{bottom:158px}.panel p{margin:0 0 4px;font-weight:bold}.panel button{border:1px solid var(--border);background:transparent;color:inherit;border-radius:6px;padding:8px;text-align:left}.panel button[aria-pressed=true]{background:var(--signal)}
   .panel small{font-size:12px;color:var(--muted-on-dark)}.status{max-width:400px;padding:10px;background:var(--ink);border:1px solid var(--border);border-radius:8px;margin:0;font-size:12px}.status button{background:none;border:0;color:inherit;text-decoration:underline}
+  .tools-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.tools-heading button{border:0;padding:8px}.panel:focus{outline:none}.audio-reader:has(.panel):not(:has(.toggle)) .panel{bottom:0}.audio-reader:has(.player):not(:has(.toggle)) .panel{bottom:112px}
   @media(max-width:500px){.player{gap:8px;padding:10px}.player-art{display:none}.now-playing strong,.excerpt{font-size:12px}}
 </style>

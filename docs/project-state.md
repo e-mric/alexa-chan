@@ -1,6 +1,6 @@
 # Current project state
 
-Reviewed **20 October 2026**, Europe/Brussels. This is a source-workspace handoff,
+Reviewed **21 October 2026**, Europe/Brussels. This is a source-workspace handoff,
 not a remote-submission receipt. Recheck source, working tree and external status.
 
 ## Accepted direction and authority
@@ -16,6 +16,14 @@ clean GitHub judging repository only**. The owner will manage reviewer access:
 **no invitations or visibility changes**. Devpost fields may be drafted, but
 **do not submit**. No new source-workspace commit/push is implied by the separate
 judging-repository authorization.
+The owner separately authorized **commit and push on 21 October**. The configured
+source remote is GitLab `origin`, branch `main`; that operation does not refresh
+the separate GitHub judging mirror or authorize submission/access changes.
+
+On 21 October the owner approved the generated notes-first reader/separate-card
+design, pronunciation visible by default, and contextual audio without a duplicate
+idle floating entry. This source checkpoint includes those changes. The three-shortcut diagram is
+still a generated proposal, not an implemented feature or approved new interaction.
 
 ## Confirmed implementation
 
@@ -33,12 +41,37 @@ judging-repository authorization.
   layouts were checked; phone spacing leaves the rider below the title.
 - Saved Markdown has Formatted/Original text views. Exact source still owns edits
   and backups. Raw HTML is inert; remote images and unsafe/relative links are inactive.
+- Student notebooks now open in a focused reader; optional Japanese has its own
+  screen with default-visible pronunciation, explicit meaning reveal and capture.
+  Returning restores scroll and keyboard focus. Collections no longer repeat covers.
+- Focused notes/cards hide idle Audio options; More retains advanced page/text tools.
+  Playing/paused transport, storage/audio failures and text-picking remain explicit.
 - Device audio stays the judging-app default. The global player now reflects whether
   recordings are actually enabled. No autoplay; pause/slower behavior is tested.
 - No live university calendar, open-ended tutor, cloud notes account or direct
   Alexa+ device connection is claimed. [Engineering](engineering.md) maps ownership.
 
 ## Verification and audit
+
+**21 October, local dirty source:** `npm run verify` passed **83 tests**, zero
+Svelte errors/warnings, build, production-runtime audit and full web audit. The gate
+initially found a newly reported Vite advisory; the lockfile-only compatible patch
+from 7.3.6 to 7.3.7 cleared it. No other dependency changed in that fix.
+
+Synthetic browser checks on the separate local origin at port 3006 covered a long
+Markdown note, exact source in edit mode, unsaved-draft guard, separate card, default
+pronunciation/toggle, explicit capture and reload, and 1800px scroll/focus restoration.
+Reader/card reflow passed at 320/390/768px and desktop at 1280px. Contextual listening,
+More tools, focus return, English device pause/slower/stop and Japanese recorded
+playback were exercised. Impeccable found no warnings in the new card/global-player
+pass; the broader shared notes/journey scan retained seven legacy/style warnings.
+This is not a physical-device, native-speaker or accessibility certification.
+
+The source checkpoint does **not** refresh the separate judging repository.
+Verify the Git remote/revision rather than treating this page as a push receipt.
+The existing submission video/screenshots also predate this reader pass.
+Port 3006 contains explicitly synthetic test notebooks, including a UI-check note
+with harmless HTML/image-blocking samples; these are not seeded into the product.
 
 **20 October, macOS / Node 24.20.0 / npm 11.19.0, dirty source based on main
 `b4776efe788ac70a4c232da2af7d09964d6c7536`:**
@@ -65,7 +98,8 @@ judging-repository authorization.
   This does not numerically certify every pixel of the feathered edge.
   Existing audio tests also cover actual recording availability.
 
-The earlier 17 October gate was 70 tests; it is not the latest revision's receipt.
+The earlier 17 October gate was 70 tests; the 20 October gate was 78. Neither is
+the latest source revision's receipt.
 Large Three.js/dependency-annotation build warnings remain. No physical-device,
 screen-reader/text-zoom, native-speaker or learning-outcome certification is claimed.
 

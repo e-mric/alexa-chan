@@ -2,6 +2,10 @@ import { writable } from 'svelte/store';
 
 // Set only by mounted personal pages; the public demo stays in English.
 export const audioLanguage = writable('en');
+// Transient presentation only: never persisted with notes or learning progress.
+export const focusedListening = writable(false);
+export const audioTools = writable({ open: false, trigger: null });
+export function openAudioTools(trigger) { audioTools.set({ open: true, trigger }); }
 export const audioCopy = {
   en: {
     controls: 'Audio controls', playing: 'Playing', stop: 'Stop', pause: 'Pause', resume: 'Resume', paused: 'Paused', slower: 'Slower', options: 'Audio options', slowHelp: 'Changing speed restarts the current spoken sentence.', title: 'Listen in your language and Japanese',

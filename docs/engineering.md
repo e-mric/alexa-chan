@@ -1,6 +1,6 @@
 # Engineering and development workflow
 
-Reviewed 20 October 2026 against current source. [AGENTS.md](../AGENTS.md) owns
+Reviewed 21 October 2026 against current source. [AGENTS.md](../AGENTS.md) owns
 rules; [project state](project-state.md) owns progress; [PRD](prd.md) owns product
 acceptance. This map describes the existing application, not a reorganization plan.
 
@@ -9,7 +9,7 @@ acceptance. This map describes the existing application, not a reorganization pl
 | Feature | Presentation | Rules / application | Infrastructure / boundary |
 | --- | --- | --- | --- |
 | Example day and server memories | `StudentMcp.svelte`; `/`, `/student-mcp` | Tool orchestration in `lib/mcp-app.js`; phrases/review in `web/src/lib/founders.js` | `founders-mcp.js` official SDK client; `lib/mcp-store.js` atomic JSON; `mcp-server.js` loopback entry |
-| Personal notebooks and review | `FoundersJourney.svelte`, `SessionNotes.svelte`; `/student`, `/student-ride` | `session-notes.js` validates/imports/selects a stable phrase; `note-markdown.js` owns the HTML-disabled Markdown renderer; `founders.js` validates backups/reviews | Storage injected into helpers; browser `localStorage` wiring in journey |
+| Personal notebooks and review | `FoundersJourney.svelte`, `SessionNotes.svelte`, `NotePhraseCard.svelte`; `/student`, `/student-ride` | `session-notes.js` validates/imports/selects a stable phrase; `note-markdown.js` owns the HTML-disabled Markdown renderer; `founders.js` validates backups/reviews | Storage injected into helpers; browser `localStorage` wiring in journey |
 | Listening and localization | `AudioReader.svelte`, `Listen.svelte`; `*-copy.js` | Queue/state and explicit language/source in `speech.js` | Web Speech / HTML audio; exact-text manifest `voice-recordings.js` |
 | Ride and identity | `RideScene.svelte`, `JourneyNav.svelte`, `Torii.svelte`, `identity.css` | `ride-motion.js` motion/contact; `ride-assets.js` viewport atlas selection | Three.js; original imagery and WebP derivatives |
 | Legacy Alexa experiments | Old routes, `dashboard/`, `skill-package/` | `lib/skill.js`, `learning.js`, `review.js`, `state.js` | `server.js`, ASK, weather and developer-managed calendar providers; explicit legacy start only |
@@ -25,6 +25,13 @@ The parked UI and old translation catalogues remain for compatibility. Markdown
 rendering is presentation only: source/storage schemas are unchanged. Raw HTML is
 disabled; custom link validation allows HTTP(S)/mailto only, and images become inert
 alt-text placeholders. Do not add plugins/embeds without security regressions.
+
+The focused student reader keeps its DOM mounted while the separate optional
+`NotePhraseCard` is shown, restoring window scroll and the invoking control on return.
+Discovery is not review: no rating is attached to an unsaved suggestion. The transient
+focused-listening/tools stores in `audio-copy.js` only control presentation; they are
+not persisted with notes. `AudioReader` retains page/selection reading and transport,
+but its idle toggle is hidden in the focused reader/card and accessed through More.
 
 The server is CommonJS, web helpers are ESM, UI uses Svelte 5 and tests use
 `node:test`/strict assertions. Follow neighbouring code and explicit injection seams.
@@ -56,6 +63,9 @@ data-loss fix. The old file-opened dashboard is not the supported entry point.
 production build, root `npm audit --omit=dev` and full web audit, stopping on failure.
 CI installs both lockfiles on Linux/Node 24 and runs the same command. Audits need
 registry/network access; report network failures as unavailable evidence, not a pass.
+`test/note-screens.test.js` uses the existing Vite/Svelte compiler to render the real
+card/collection on the server and adds source-contract checks. It does not simulate
+browser events; scroll/focus, draft guard and listening still require the UI journey.
 The docs check validates Markdown inline/reference local paths; it does not validate
 anchors, external URLs, prose claims, runtime routes or confidentiality.
 
