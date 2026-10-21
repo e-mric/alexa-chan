@@ -60,7 +60,7 @@
   }
 </script>
 
-<svelte:head><title>Alexa-chan · Noor’s university day</title><meta name="description" content="A university student's day with optional Japanese learning, a real MCP connection and clearly labelled fictional classes."/></svelte:head>
+<svelte:head><title>Alexa-chan · Kaela’s university day</title><meta name="description" content="A university student's day with optional Japanese learning, a real MCP connection and clearly labelled fictional classes."/></svelte:head>
 <div class="world" aria-hidden="true"><div class="sky"></div>{#if !fallback}<RideScene paused={stopped} slow={!!explanation || view === 'memories'} onfallback={() => fallback = true}/>{:else}<img src="/images/ride-rider-courier.webp" alt=""/>{/if}<div class="shade"></div></div>
 <header><a class="brand" href="/"><span class="brand-dot" aria-hidden="true"></span> alexa-chan</a><span class="edition">STUDENT LIFE{judgeMode ? ' / MCP TRIAL' : ''}</span><a href="/student">Simple notes <Torii/></a><button disabled={reduced || fallback} aria-pressed={stopped} onclick={() => paused = !paused}>{reduced || fallback ? 'Motion off' : paused ? 'Resume ride' : 'Pause ride'}</button></header>
 <main>
@@ -71,14 +71,14 @@
       onmemories={() => { if (ready) run(async () => { await refreshMemories(); view = 'memories'; }); }} disabled={!ready || busy}/>
     <div class="deck-heading"><span class="sample-badge">EXAMPLE TIMETABLE</span><span class="connection-status"><span class:connected={ready}></span>{ready ? 'Connected' : 'Local demo'}</span></div>
     {#if !ready}
-      <section class="welcome card" aria-label={judgeMode ? 'MCP connection' : 'Start the example'}><span class="eyebrow">MEET NOOR</span><h2>A day between classes.</h2><p>Two classes or meetings. Your notes.<br/>Japanese, only when you’re curious.</p><button class="primary" disabled={busy || !mounted} onclick={connect}>{busy ? 'Working…' : judgeMode ? 'Connect MCP' : 'Try Noor’s day'} <Torii/></button><a href="/student-ride">Or start with your own notes <Torii/></a><small>A fictional day. No account or calendar needed.</small></section>
+      <section class="welcome card" aria-label={judgeMode ? 'MCP connection' : 'Start the example'}><span class="eyebrow">MEET KAELA</span><h2>A day between classes.</h2><p>Two classes or meetings. Your notes.<br/>Japanese, only when you’re curious.</p><button class="primary" disabled={busy || !mounted} onclick={connect}>{busy ? 'Working…' : judgeMode ? 'Connect MCP' : 'Try Kaela’s day'} <Torii/></button><a href="/student-ride">Or start with your own notes <Torii/></a><small>A fictional day. No account or calendar needed.</small></section>
     {/if}
     {#if error}<p class="error" role="alert">{error} No offline success is simulated.{#if !ready} Run <code>npm run start:mcp</code>.{/if}</p>{/if}
     {#if notice}<p class="notice" role="status">{notice}</p>{/if}
     {#if ready}
       <div class="card-stack" aria-busy={busy}>
       {#if view === 'programme' && programme}
-        <article class="card"><div class="card-top"><div><span class="eyebrow">NOOR’S DAY</span><h2 class="day-title">{programme.date === programme.today ? 'Today, at a glance.' : 'A little further ahead.'}</h2></div><span>{programme.date}<br/>Brussels</span></div>
+        <article class="card"><div class="card-top"><div><span class="eyebrow">KAELA’S DAY</span><h2 class="day-title">{programme.date === programme.today ? 'Today, at a glance.' : 'A little further ahead.'}</h2></div><span>{programme.date}<br/>Brussels</span></div>
           <div class="day-actions"><button aria-pressed={programme.date === programme.today} disabled={busy} onclick={() => run(() => loadDay())}>Today</button><button aria-pressed={programme.date !== programme.today} disabled={busy} onclick={() => run(() => loadDay(new Date(Date.parse(programme.today) + 86400000).toISOString().slice(0,10)))}>Tomorrow</button></div>
           <div class="agenda">{#each programme.events as event, index}<section class="event"><div class="event-time"><time>{event.startTime}</time><small>{event.endTime}</small></div><div class="event-copy"><span class="event-tag">{index === 0 ? 'FIRST ON YOUR PLAN' : 'ALSO TODAY'}</span><h3>{event.title.replace(/ · example$/, '')}</h3><p>{event.location.replace(/ · example$/, '')}</p></div></section>{/each}</div>
           {#if !programme.events.length}<p>{programme.status === 'outside' ? 'This date is outside the sample coverage.' : 'No example events for this day.'}</p>{/if}
@@ -102,7 +102,7 @@
       {/if}
       </div>
     {/if}
-    <details class="sample"><summary>About this example</summary><p>Noor’s seven-day university timetable is fictional and rolls forward with today’s date. No real university calendar, private notes or Alexa+ device are connected.</p><p>Audio uses device voices; you may need a Japanese voice installed. Nothing plays automatically.</p><button class="text-button" disabled={!mounted || busy} onclick={connect}>{ready ? 'Reconnect to the local server' : 'Connect to the local server'}</button></details>
+    <details class="sample"><summary>About this example</summary><p>Kaela’s seven-day university timetable is fictional and rolls forward with today’s date. No real university calendar, private notes or Alexa+ device are connected.</p><p>Audio uses device voices; you may need a Japanese voice installed. Nothing plays automatically.</p><button class="text-button" disabled={!mounted || busy} onclick={connect}>{ready ? 'Reconnect to the local server' : 'Connect to the local server'}</button></details>
     <details class="trace"><summary>{judgeMode ? 'Connection proof' : 'Behind the scenes'} · {entries.length} recent requests</summary><p>Actual MCP requests from this browser. No tokens or calendar contents are logged here.</p><ol>{#each entries as entry}<li class:failed={!entry.ok}><b>{entry.ok ? '✓' : '×'} {entry.name}</b><span>{entry.protocol || `${entry.status} · ${entry.ms} ms`}</span></li>{/each}</ol>{#if !entries.length}<p>Connect to see initialize, tools/list and tools/call.</p>{/if}</details>
     <footer>{judgeMode ? 'Guided interactions, not a general AI chat. Your random judge access key is stored in this browser; anyone with that key can access this example deck. No private notes are sent.' : 'An example day, not your live timetable. Your own notes stay separate in this browser.'}<a href="/student">Keep your own study notes <Torii/></a>{#if !judgeMode}<a href="/student-mcp">How the connection works <Torii/></a>{/if}</footer>
   </div>

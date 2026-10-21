@@ -237,7 +237,7 @@
     {:else if view === 'memories'}
       <section class="memory-view panel"><span class="eyebrow">{t.allMemories} / {progress.memories.length}</span><h2>{student ? journey.memories : t.memories}</h2>{#if student}<p class="small">{journey.personalMemories}</p>{/if}{#if memory}<p>{t.due}: {due.length}</p><h3 lang="ja">{phrases[memory.id].jp}</h3><label class="hint-toggle"><input type="checkbox" bind:checked={romajiHint}/>{notebookCopy[locale].pronunciation}</label>{#if romajiHint || revealed}<p class="romaji">{phrases[memory.id].romaji}</p>{/if}<Listen text={phrases[memory.id].jp} lang="ja-JP" label={t.listenJapanese}/>{#if !revealed}<button class="primary" onclick={() => revealed = true}>{t.reveal}</button>{:else}<p class="meaning">{phrases[memory.id].meaning[locale]}</p><Listen text={phrases[memory.id].meaning[locale]} lang={voice} label={t.listen}/><div class="actions"><button class="outline" onclick={() => rate('again')}>{t.again}</button><button class="primary" onclick={() => rate('good')}>{t.good}</button></div>{/if}{:else}<div class="empty"><span aria-hidden="true">一歩</span><p>{progress.memories.length ? t.done : t.noCards}</p>{#if nextDue}<p>{t.nextDue}: {new Intl.DateTimeFormat(LOCALES[locale], { timeZone: 'Europe/Brussels', dateStyle: 'medium', timeStyle: 'short' }).format(nextDue)}</p>{/if}</div>{/if}</section>
     {/if}
-    <footer><p>{t.storage}</p><a href="/student-mcp">Noor’s university day <Torii/></a></footer>
+    <footer><p>{t.storage}</p><a href="/student-mcp">Kaela’s university day <Torii/></a></footer>
     </div>
     {#if immersive}<p class="ride-caption">{fallback ? t.staticScene : reduced ? t.reducedMotion : t.tagline} <span>{student ? 'CAMPUS' : 'ALEXA-CHAN'} → 富士山</span></p>{/if}
   </main>

@@ -64,7 +64,7 @@
 
 <div class="shell">
   <header><a href="/" class="brand"><span class="brand-symbol">ア</span>alexa<span>-chan</span></a><nav aria-label="Main navigation"><button class:active={tab === 'today'} onclick={() => selectTab('today')}>Today</button><button class:active={tab === 'review'} onclick={() => selectTab('review')}>Review <span class="count">{deck.dueCount}</span></button></nav><span class="status" role="status"><i class:online></i>{online ? 'Connected' : 'Offline'}</span></header>
-  <div class="guide-link"><a href="/student">Study notes · FR / NL / DE / EN ↗</a><a href="/student-mcp">Noor’s university day ↗</a><button onclick={() => showGuide = true}>How does it work?</button></div>
+  <div class="guide-link"><a href="/student">Study notes · FR / NL / DE / EN ↗</a><a href="/student-mcp">Kaela’s university day ↗</a><button onclick={() => showGuide = true}>How does it work?</button></div>
   {#if showGuide}
     <Onboarding onfinish={finishGuide}/>
   {:else if tab === 'today'}

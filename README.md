@@ -2,7 +2,7 @@
 
 Get the answer you need. Pick up a little Japanese along the way.
 
-Meet **Noor, a university student**. Check an example day of classes and a group
+Meet **Kaela, a university student**. Check an example day of classes and a group
 project, notice one small Japanese encouragement, and choose whether to explore
 it. Keep your own study notes without a calendar or account. Japanese is optional:
 your notes stay unchanged, and only phrases you explicitly keep become memories.
@@ -22,7 +22,7 @@ npm run build
 npm start
 ```
 
-Open [Alexa-chan](http://127.0.0.1:3001/) and choose **Try Noor’s day**.
+Open [Alexa-chan](http://127.0.0.1:3001/) and choose **Try Kaela’s day**.
 The seven-day timetable is visibly fictional, rolls forward with today's date,
 and is returned by a real MCP server. It is not a university calendar connection,
 an unrestricted AI chat, or a direct Alexa+ device connection.

@@ -51,7 +51,7 @@
     <div class="shade"></div>
     {#if fallback}<img class="fallback-rider" src="/images/ride-rider-courier.png" alt="" />{/if}
   </div>
-  <header><a class="brand" href="/"><i></i>alexa-chan</a><nav aria-label="Navigation"><a href="/ride" aria-current="page">The ride</a><a href="/student-mcp">Noor’s university day</a><a href="/student-ride">Study notes</a></nav><div class="controls"><button onclick={()=>simple=!simple} aria-pressed={simple}>{simple?'Immersive view':'Simple view'}</button><button onclick={()=>paused=!paused} disabled={reduced||simple||fallback} aria-pressed={stopped}>{stopped?'▷ Resume':'Ⅱ Pause'}</button></div></header>
+  <header><a class="brand" href="/"><i></i>alexa-chan</a><nav aria-label="Navigation"><a href="/ride" aria-current="page">The ride</a><a href="/student-mcp">Kaela’s university day</a><a href="/student-ride">Study notes</a></nav><div class="controls"><button onclick={()=>simple=!simple} aria-pressed={simple}>{simple?'Immersive view':'Simple view'}</button><button onclick={()=>paused=!paused} disabled={reduced||simple||fallback} aria-pressed={stopped}>{stopped?'▷ Resume':'Ⅱ Pause'}</button></div></header>
   <main>
     <div class="journey"><span class="eyebrow">CHAPTER 01 / THE FIRST STEP</span><h1>A little Japanese,<br/><em>along the way.</em></h1><p>No tests. Just a day to live.</p><div class="route"><span lang="ja">東京</span><i></i><span lang="ja">富士山</span></div></div>
     <section class="deck" aria-label="Journey cards">

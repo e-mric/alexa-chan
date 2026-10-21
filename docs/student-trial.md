@@ -1,12 +1,12 @@
 # Your first morning with Alexa-chan
 
-The main example follows Noor, a university student. It is fictional: no university
+The main example follows Kaela, a university student. It is fictional: no university
 or private calendar is connected. You can also use your own notes entirely locally.
 
 ## Five-minute try
 
 1. Follow the README setup, then open http://127.0.0.1:3001/.
-2. Choose **Try Noor's day**. Check today's two example events and their times.
+2. Choose **Try Kaela's day**. Check today's two example events and their times.
 3. Ignore Japanese, or expand **A little Japanese, if you’re curious** and try
    **Meaning · Iké**, **More detail · Motto**, **How to ask · Nanté**. Nothing is saved automatically.
 4. Keep a phrase, open Memories, reveal its meaning and rate your recall.

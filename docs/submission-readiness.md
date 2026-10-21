@@ -1,4 +1,4 @@
-# Release and submission readiness — updated 21 October 2026
+# Release and submission readiness — updated 22 October 2026
 
 For the current milestone, source-workspace checks and handoff, read
 [project state](project-state.md). This page owns the release/owner checklist and
@@ -9,7 +9,46 @@ send.** The remaining account/publication steps are listed below, not hidden
 behind a claim of full production readiness. Draft fields are saved; no entry has
 been submitted.
 
-## Current preflight — 21 October
+## Current preflight — 22 October
+
+**22 October release candidate:** primary student renamed to **Kaela**, with a rendered
+regression test and unchanged storage. Source `npm run verify` rerun: **84 passed**;
+fresh provider-free copy: **80 passed + four intentional recording skips**,
+zero Svelte diagnostics, build and clean production-runtime/full-web audits.
+The owner authorized committing/pushing this candidate and refreshing the clean
+judging repository. Exact publication/CI receipts must follow; local checks alone
+are not a push receipt. Local Devpost copy was updated; remote draft fields and
+screenshots were not changed for Kaela.
+
+Current owner-local video: **78-second female-voice Kaela manga story**. The central
+pitch is Alexa helping her day first, with Japanese inside that conversation only
+when requested. A fresh script, timeline and **single uncut narration** replace
+the previous 105-second insert edit, which had a reported voice glitch. The short
+**Alexa+ conversation concept** is labelled beside genuine web MCP results.
+The owner requested a female narrator: a single complete Jessica take now replaces
+Koichi, with the same script/art/music and retimed scenes/captions. Earlier cuts
+remain preserved. No application listening defaults changed.
+[Media provenance and verification](submission-demo.md) identifies the current
+file and checks. Owner full watch/listen review, upload/public URL and repository
+access remain. No media was committed or uploaded.
+The owner-local submission-named copy is
+`data/submission-2026-10-22/Alexa-chan-Devpost-Demo.mp4`, byte-identical to the
+female-voice export; this is not a public video URL.
+All five tools were exercised through the isolated actual web client on 22 October;
+saved question/review state survived reload and reconnect. This is not an Alexa+
+device or general conversational-agent test. Runtime code is unchanged by the
+22 October media revision. The 84/80-test gates above were rerun for this release
+on 22 October; the isolated port-3012 built-copy smoke also confirmed the MCP loop,
+unchanged synthetic Markdown and separate optional Japanese card.
+
+**Pre-refresh read-only remote check, 22 October:** GitLab `main` was `a4f4205`; GitHub
+judging `main` is docs-only `90f7e74`, with passing exact CI but the older Noor
+runtime. It is private, owner-only, with no pending invitations. The Kaela changes
+and current pitch/docs were still local then. A new Devpost live read was blocked by
+reauthentication, so the saved draft/video fields were not re-verified. No remote
+changes, access changes or submission were made during this status check.
+
+### Last confirmed published runtime receipt — 21 October
 
 **Confirmed:** source `a4f4205` was pushed to GitLab, then the separately authorized
 clean GitHub judging refresh was pushed as **`1c36f2bd1eff8f40f565e0fce2bfc3bcaca4382c`**.
@@ -24,8 +63,12 @@ browser smoke confirmed actual local MCP connection, synthetic Markdown notes an
 the separate card/device-only disclosure. No private notes, provider recordings,
 parked documents, credentials or runtime stores entered the 118-file release.
 The repository remains private and owner-only, with no pending invitations.
-No reviewer access, visibility or Devpost status was changed. The existing video
-and screenshots still predate this reader pass; the shortcut diagram is a proposal.
+No reviewer access, visibility or Devpost status was changed. The owner-local video
+was subsequently refreshed to **116 seconds**, including the new notes/card flow,
+shōnen-directed narration, original quiet instrumental and subtitles; see
+[media provenance and verification](submission-demo.md). Full owner watch/listen
+review and a public video URL remain. Devpost screenshots still predate the reader
+pass; the shortcut diagram is a proposal. No media was committed, uploaded or submitted.
 
 ### Previous preflight — 20 October
 
@@ -93,9 +136,9 @@ The GitHub commits/CI receipts, archive and 108-second video below describe the
 previous shipped snapshot, not this local visual revision. They need refreshing
 after owner review of the changed interface; no new video or push is claimed.
 
-## Current release
+## Current release candidate
 
-The main example is Noor's university day. Public-facing navigation, onboarding
+The main example is Kaela's university day. Public-facing navigation, onboarding
 and copy do not mention the parked external programme. Personal student notes
 use a new isolated browser key; existing private pilot contents remain untouched.
 The useful day/notes → optional Japanese → explicit save → recall loop is the scope.

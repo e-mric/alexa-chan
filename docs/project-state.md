@@ -1,6 +1,6 @@
 # Current project state
 
-Reviewed **21 October 2026**, Europe/Brussels. This is a source-workspace handoff,
+Reviewed **22 October 2026**, Europe/Brussels. This is a source-workspace handoff,
 not a remote-submission receipt. Recheck source, working tree and external status.
 
 ## Accepted direction and authority
@@ -22,13 +22,35 @@ the separate GitHub judging mirror or authorize submission/access changes.
 Source commit `a4f4205b4fcc36889683f7f17d35febdbb6eedae` was pushed to GitLab.
 The owner then separately requested the GitHub refresh recorded below.
 
+**22 October authorization:** commit/push the scoped Kaela source and current
+pitch/testing/media documentation, then refresh the clean GitHub judging copy.
+Do not stage the private workflow-state file, generated media or runtime stores.
+Reviewer access, visibility, video upload and final submission remain separate.
+The owner is handling the YouTube upload; no public URL has been provided yet.
+
 On 21 October the owner approved the generated notes-first reader/separate-card
 design, pronunciation visible by default, and contextual audio without a duplicate
 idle floating entry. This source checkpoint includes those changes. The three-shortcut diagram is
 still a generated proposal, not an implemented feature or approved new interaction.
 
+**Accepted presentation direction, 22 October:** explain Alexa+ relevance with a
+short Kaela/Alexa-chan conversation: day first, Japanese on request, explicit keep.
+The film must distinguish the intended Alexa+ conversation from real web-client
+tool results. This authorizes a media/pitch revision, not a device connection,
+English conversational frontend, notes upload, deployment or publication.
+The owner then requested a from-scratch film centred on: **Alexa helps Kaela get
+through her day; Alexa-chan makes room for a little Japanese inside that
+conversation, only when she wants it.** Reuse cleared local artwork/music, but use
+a fresh full narration and timeline rather than splicing the old recording.
+The owner subsequently requested a **female narrator for Kaela**; this changes
+the video voice, not the app's listening defaults or recording catalogue.
+
 ## Confirmed implementation
 
+- **21 October:** the primary fictional student is now **Kaela**, including
+  onboarding, page title, timetable heading and linked routes. This is copy only:
+  storage keys, original notes and historical persona-test identities are unchanged.
+  This rename is included in the verified 22 October release candidate below.
 - `/` and `/student-mcp`: actual SDK/Streamable HTTP MCP, labelled fictional
   rolling timetable, explicit phrase capture and server-persistent review.
 - `/student` and `/student-ride`: browser-local original notebooks and separate
@@ -55,7 +77,23 @@ still a generated proposal, not an implemented feature or approved new interacti
 
 ## Verification and audit
 
-**21 October, local dirty source:** `npm run verify` passed **83 tests**, zero
+**22 October release candidate, Node 24.20.0:** source `npm run verify` passed
+**84 tests**, zero Svelte errors/warnings, build and clean production-runtime/full-web
+audits. A fresh 118-file provider-free package passed clean installs and the same
+gate: **80 passed, four intentional recording-catalogue skips**, zero diagnostics,
+build and clean runtime/full-web audits. Legacy full/dev ASK exposure remains.
+The package contains no provider recordings, private workflow state, runtime data
+or parked programme documents.
+
+The built package at isolated port 3012 confirmed Kaela onboarding, real MCP day,
+explanation, explicit question save, reveal/rating and next-review persistence on
+reload/reconnect. A synthetic Markdown notebook rendered correctly, exact source
+was retained, optional Japanese opened separately with pronunciation visible, and
+return restored focus. No audio playback or physical-device assessment was repeated.
+Evidence is owner-local under `data/release-2026-10-22/`. The test tab/server were
+closed; existing development servers and private notebooks were untouched.
+
+**21 October, local dirty source including Kaela:** `npm run verify` passed **84 tests**, zero
 Svelte errors/warnings, build, production-runtime audit and full web audit. The gate
 initially found a newly reported Vite advisory; the lockfile-only compatible patch
 from 7.3.6 to 7.3.7 cleared it. No other dependency changed in that fix.
@@ -69,6 +107,17 @@ playback were exercised. Impeccable found no warnings in the new card/global-pla
 pass; the broader shared notes/journey scan retained seven legacy/style warnings.
 This is not a physical-device, native-speaker or accessibility certification.
 
+**21 October, local Kaela distribution:** a fresh 118-file provider-free copy passed
+clean installs and `npm run verify`: **80 passed, four intentional recording skips**,
+zero Svelte diagnostics, build and clean runtime/full-web audits. Browser capture
+on port 3009 confirmed actual local MCP results, synthetic notes with exact source
+preserved, optional card/default pronunciation, explicit save/review/rating and
+reload persistence. Kaela onboarding also rendered at 390px. Full-page capture
+shows the idle floating audio entry crossing a secondary link at that viewport;
+this was observed, not fixed or certified as accessible by the media task.
+The temporary capture server was stopped; existing development servers were left
+alone. No Kaela release was pushed, deployed or submitted.
+
 **21 October, confirmed judging refresh:** allowlisted source from `a4f4205`
 was pushed separately as **`1c36f2bd1eff8f40f565e0fce2bfc3bcaca4382c`** to
 [the judging repository](https://github.com/e-mric/alexa-chan-submission).
@@ -81,7 +130,8 @@ the built clean copy at port 3007 confirmed actual local MCP connection, synthet
 Markdown save/read, separate Japanese card, default pronunciation and device-only
 listening disclosure. This is not an Echo/Alexa+ device test.
 The destination remains private, owner-only, with no pending invitations.
-The existing submission video/screenshots also predate this reader pass.
+The Devpost screenshots still predate this reader pass. The owner-local video was
+refreshed on 21 October as recorded below; it has not been uploaded to Devpost.
 Port 3006 contains explicitly synthetic test notebooks, including a UI-check note
 with harmless HTML/image-blocking samples; these are not seeded into the product.
 
@@ -117,13 +167,54 @@ screen-reader/text-zoom, native-speaker or learning-outcome certification is cla
 
 ## Submission materials and remaining authority
 
-The new owner-local English video is **112 seconds, 1920×1080, H.264/AAC, 24fps**,
-with actual app captures, edited holds/looped ride, chapter graphics and new
-ElevenLabs narration. [Demo materials](submission-demo.md) owns its exact path,
-provenance, QA and owner-review steps. It is not yet a public YouTube/Vimeo link.
+**22 October, current female-voice film:** **78 seconds**, 1920×1080, H.264/AAC,
+24fps. One new complete **71.84-second Jessica** narration cost **1,297.8702
+credits**. The approved script, artwork, actual synthetic app captures and quiet
+music are unchanged; scenes and captions follow the new delivery. No voice joins
+or trims. The Alexa+ pitch comes before the short opt-in exchange; notes remain
+a supporting moment. Concept dialogue and actual web results stay labelled.
+The underlying isolated port-3011 checks exercised all five tools, explicit saving,
+review and next-review persistence after reload/reconnect. Those are reused
+22 October web evidence, not a new app/device test for this voice-only edit.
+No runtime, app listening default, private notes or remote draft changed.
+The previous 79-second Koichi film remains preserved with its export receipt.
+Full encoded decode, 16 storyboard/16 encoded samples, complete voice and retimed
+caption checks passed; final levels are −16.16 LUFS, −1.82 dBTP. Documentation
+checks passed; no runtime gate was rerun for the media-only edit.
+Owner full watch/listen and pronunciation review remain before publication.
+The owner requested a submission-ready filename: the byte-identical local copy
+is `data/submission-2026-10-22/Alexa-chan-Devpost-Demo.mp4`; source media is preserved.
+[Demo materials](submission-demo.md) owns exact files, provenance and QA; the
+[judge guide](mcp-judge-trial.md) maps intended turns to working web controls.
 
-The owner confirmed a **current paid ElevenLabs plan** and authorized a new Koichi
-narration take (about 1,545 credits). The MCP voice lookup and generation worked.
+**22 October pre-refresh read-only publication check:** GitLab `main` resolved to
+`a4f4205b4fcc36889683f7f17d35febdbb6eedae`. The judging GitHub `main` resolves to
+docs-only `90f7e74520a00104def8514d83bfba344fcb48a4`; its exact CI succeeded.
+The remote `StudentMcp.svelte` still renders **MEET NOOR / Try Noor’s day**.
+It is private, with only `e-mric` and zero pending invitations. Local Kaela copy,
+regression and current pitch/media documentation were uncommitted/unpushed then.
+The video is ignored local media, not Git source. Devpost `get_project` returned
+reauthentication required; no retry, login, remote write or submission occurred.
+The earlier browser-draft receipt is not a current live verification.
+
+The previous **105-second insert cut is superseded**: a reported voice glitch
+near 00:20 was traced to an audio trim through active speech. Its earlier decode
+and level checks were insufficient to establish perceptual quality. Older films
+remain preserved; the fresh film uses one uncut narration instead.
+
+**21 October, preserved Kaela manga-story export:** the earlier owner-local English film is
+**90 seconds, 1920×1080, H.264/AAC, 24fps**. Practical first-person Kaela narration
+is matched to real notes/card/review captures, three original manga pages, panel
+reveals, chapter stamps, animated callouts and English captions. One replacement
+Koichi take cost **1,491.8508 credits**; existing quiet instrumental music was reused
+without another generation. The end card uses the owner's approved “Working web
+demo powered by a self-hosted MCP server.” It does not narrate device-test limitations.
+Encoded decode, sampled frames, captions and level checks passed; full owner
+watch/listen review remains. [Demo materials](submission-demo.md) owns the exact
+path, provenance, QA and preserved earlier drafts. Nothing was uploaded to Devpost.
+
+The owner confirmed a **current paid ElevenLabs plan** and authorized the new audio.
+The MCP voice lookup and speech/music generations worked.
 This does not retroactively clear older free-credit clips; those remain excluded
 from judging source. No subscription was bought or private notes uploaded.
 
@@ -147,11 +238,11 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. The latest clean judging refresh **`1c36f2b`** includes the focused notes/card
-   and contextual listening pass; its exact CI passed (receipt above).
-   The repository remains private, owner-only, with no pending invitations.
-2. Matching video export/encoded-frame/audio checks are complete. Owner: verify eligibility, approve the video
-   and art entitlement, and provide the public video link and reviewer access.
+1. The owner authorized the verified 22 October Kaela source push and clean GitHub
+   refresh. Record the exact published revisions/CI after those operations; do not
+   treat the earlier `1c36f2b`/`90f7e74` receipts as proof of this candidate's publication.
+2. Review the new 78-second female-voice film, not the previous male-narrated cuts.
+   Owner: verify eligibility, approve the video/art and provide the public link/reviewer access.
 3. Owner: review saved draft fields, provide the public video URL and complete
    personal eligibility/terms only when ready. Never click Submit in this task.
 4. Run a real seven-day notebook trial and competent-speaker review after this

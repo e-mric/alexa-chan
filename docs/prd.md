@@ -1,6 +1,6 @@
 # Alexa-chan — Product Requirements Document
 
-Version 3.3 · 21 October 2026 · Owner: Emeric Van Frausum
+Version 3.4 · 22 October 2026 · Owner: Emeric Van Frausum
 
 ## Mission
 
@@ -10,7 +10,7 @@ learning, not a replacement for a language course or a demonstrated learning out
 
 ## Current scope
 
-The primary example is **Noor's university day**. **Accepted decision, 20 October:**
+The primary example is **Kaela's university day**. **Accepted decision, 20 October:**
 the student experience, personal UI and explanations are English → Japanese only.
 Older FR/NL/DE locale values remain intact in stored data and recoverable backups;
 they do not select another student interface language. Original notes are never
@@ -37,19 +37,26 @@ New channels, live campus calendars, WhatsApp, cloud sync, mobile apps, open-end
 tutoring, extra art, XP and compulsory streaks are out of scope. A direct Alexa+
 connection follows a proven core and supported account access; none is claimed today.
 
+**Accepted presentation direction, 22 October:** a short Kaela/Alexa-chan exchange
+should make the Alexa+ value clear: a practical day answer, Japanese only on
+request, and explicit phrase capture for later recall. This is an intended
+conversational experience illustrated alongside real web MCP results, not a new
+runtime feature or a claim of device integration. The web controls and privacy
+boundary remain as specified below; the judge guide maps the example turns.
+
 ## Primary scenario
 
-Noor checks today's classes: 09:00 computer science and 14:00 a group project
+Kaela checks today's classes: 09:00 computer science and 14:00 a group project
 meeting. Times and locations come first. Alexa-chan offers 一歩ずつ。
-(`Ippo zutsu.` / One step at a time.) Noor can do nothing and carry on.
+(`Ippo zutsu.` / One step at a time.) Kaela can do nothing and carry on.
 
-If curious, Noor chooses **Iké** for the meaning, **Motto** for a little detail,
+If curious, Kaela chooses **Iké** for the meaning, **Motto** for a little detail,
 or **Nanté** for `今日の予定は？` / `Kyō no yotei wa?` / What's today's plan?
 These are stable app shortcuts, not a claim that every label is the literal
 Japanese translation of its action. Asking the guided question retrieves the day
 again through MCP; it does not automatically save a learning card.
 
-After class, Noor creates a notebook, pastes notes, and saves them. Original text
+After class, Kaela creates a notebook, pastes notes, and saves them. Original text
 and whitespace stay intact. Japanese is initially closed; opening it reveals one
 curated phrase appropriate to supported keywords, not a translation of the notes.
 Only **Keep this phrase** opts into review. Nothing blocks rereading.

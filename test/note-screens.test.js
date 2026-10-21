@@ -7,17 +7,33 @@ const fs = require('node:fs');
 // Compile the real Svelte components, not a hand-written HTML fixture.
 const web = path.resolve(__dirname, '../web');
 const resolveWeb = name => pathToFileURL(require.resolve(name, { paths: [web] })).href;
-let server, render, Card, Notes;
+let server, render, Card, Notes, Student;
 before(async () => {
   const { createServer } = await import(resolveWeb('vite'));
   const { svelte } = await import(resolveWeb('@sveltejs/vite-plugin-svelte'));
   server = await createServer({ root: web, configFile: false, plugins: [svelte({ configFile: false })],
+    resolve: { alias: { $lib: path.join(web, 'src/lib') } },
     server: { middlewareMode: true }, appType: 'custom', logLevel: 'error' });
   ({ render } = await server.ssrLoadModule('svelte/server'));
   Card = (await server.ssrLoadModule('/src/lib/NotePhraseCard.svelte')).default;
   Notes = (await server.ssrLoadModule('/src/lib/SessionNotes.svelte')).default;
+  Student = (await server.ssrLoadModule('/src/lib/StudentMcp.svelte')).default;
 });
 after(async () => { await server?.close(); });
+
+test('Kaela is the fictional student in the rendered onboarding and linked routes', () => {
+  const output = render(Student, { props: { judgeMode: false } });
+  assert.match(output.head, /Kaela’s university day/);
+  assert.match(output.body, /MEET KAELA/);
+  assert.match(output.body, /Try Kaela’s day/);
+  assert.match(output.body, /Kaela’s seven-day university timetable is fictional/);
+  assert.doesNotMatch(output.body + output.head, /Noor|NOOR/);
+  for (const name of ['lib/StudentMcp.svelte', 'lib/FoundersJourney.svelte', 'routes/ride/+page.svelte', 'routes/legacy/+page.svelte']) {
+    const source = fs.readFileSync(path.join(web, 'src', name), 'utf8');
+    assert.doesNotMatch(source, /Noor|NOOR/, name);
+    assert.match(source, /Kaela/, name);
+  }
+});
 
 test('note discovery starts unrevealed, with no implicit capture or recall score', async () => {
   const { phrases } = await import('../web/src/lib/founders.js');

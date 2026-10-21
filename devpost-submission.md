@@ -24,9 +24,9 @@ You love the idea of learning Japanese. Finding time for another course? Not so 
 Alexa-chan brings a little Japanese into something you already do: checking your
 day and rereading your study notes. Your day comes first. Learning is an invitation.
 
-### Meet Noor
+### Meet Kaela
 
-Noor is a university student with classes, a group project, and notes to go through.
+Kaela is a university student with classes, a group project, and notes to go through.
 She opens Alexa-chan to see her day. Alongside the useful answer, she finds a short
 Japanese encouragement.
 
@@ -34,7 +34,7 @@ She can leave it there, listen to it, or get curious. **Iké** explains the mean
 **Motto** goes a little deeper. **Nanté** shows her how to ask the question in Japanese.
 If a phrase matters to her, she can save it and come back to it later.
 
-After class, Noor keeps her own notes. Her words stay unchanged and private in her
+After class, Kaela keeps her own notes. Her words stay unchanged and private in her
 browser. A Japanese phrase is there if she wants it, never a compulsory lesson.
 
 ### A small adventure between classes
@@ -71,7 +71,7 @@ claimed; no direct Alexa+ device connection, AWS deployment or Kiro contribution
 
 ## Inspiration
 
-Noor is curious about Japanese, but university already fills her day. We wanted
+Kaela is curious about Japanese, but university already fills her day. We wanted
 learning to accompany something useful: checking classes, planning a group project
 or rereading study notes. A short familiar phrase can invite curiosity without
 turning every visit into a lesson. The focused student experience is English →
@@ -81,7 +81,7 @@ Japanese; original notes are not automatically translated.
 
 Alexa-chan answers a practical request first, then offers one small Japanese
 encouragement. Iké explains the meaning, Motto adds detail, and Nanté teaches the
-corresponding question. Noor can ignore Japanese, listen, explore, or explicitly
+corresponding question. Kaela can ignore Japanese, listen, explore, or explicitly
 keep a phrase for later recall. Trying Japanese never silently enrols her in review.
 
 The English university example uses a real MCP web client/server inside an

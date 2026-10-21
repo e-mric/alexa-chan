@@ -1,4 +1,4 @@
-# Judge guide — Noor's university day
+# Judge guide — Kaela's university day
 
 Use Node.js 24 LTS. No Alexa, calendar, ElevenLabs or LLM account keys are needed.
 
@@ -10,7 +10,7 @@ npm start
 ```
 
 Open http://127.0.0.1:3001/student-mcp and **Connect MCP**. The friendlier home
-page at `/` uses the same real client with **Try Noor's day**. Keep the server running.
+page at `/` uses the same real client with **Try Kaela's day**. Keep the server running.
 `npm run start:mcp` is an alias; only `npm run start:legacy` starts the old ASK adapter.
 
 ## Walkthrough
@@ -36,6 +36,30 @@ are relative sample days, not a real weekly university schedule or enrolment.
 Its badge stays visible; expand **About this example** for limitations/reconnection.
 The unified player offers pause/resume and slower speech with explicit language
 and source. No playback starts automatically and no fake duration/progress is shown.
+
+## Why Alexa+ and how to try the short interaction
+
+**Accepted presentation direction, 22 October:** a useful daily conversation can
+offer a little Japanese only when requested. Alexa-chan contributes contextual
+phrases, explicit capture and persistent recall, rather than automatic translation
+or a compulsory lesson.
+
+The video illustrates the intended Alexa+ dialogue. To exercise its real tools
+today, use the web client:
+
+| Intended conversational turn | Current web action | Real MCP tool |
+| --- | --- | --- |
+| “What's on my day?” | Try Kaela's day / Connect MCP | `get_day_programme` |
+| “How do I ask that in Japanese?” | Open optional Japanese → How to ask · Nanté | `explain_phrase` |
+| “Keep that one.” | Save the question | `save_phrase`, then `list_memories` |
+| Revisit the phrase | Memories → reveal → explicit rating | `list_memories`, `review_phrase` |
+
+These English sentences are storyboards, not accepted commands in a new speech
+or natural-language input box. The web input only accepts the supported guided
+Japanese question. A future Alexa+ connection would provide the conversational
+interface; this pilot verifies the underlying tools through its actual web client.
+Personal notebooks remain browser-local and inaccessible to these tools. There is
+no newly implemented or tested Alexa+ device connection.
 
 ## Actual integration
 
