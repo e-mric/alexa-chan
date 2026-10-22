@@ -1,5 +1,41 @@
 # English student demonstration
 
+## Owner upload and Devpost draft — 22 October 2026
+
+**Confirmed:** the owner provided [the YouTube video](https://youtu.be/UNwvPkaCGCg).
+The signed-in browser saved that URL in Devpost and the project preview renders
+the Kaela thumbnail. Revised pitch/story distinguish the intended Alexa
+conversation from the working web-MCP pilot. The hackathon entry remains a draft;
+no final action, access change or eligibility/terms edit occurred. Thumbnail/embed
+inspection does not verify signed-out full playback or Japanese pronunciation.
+The export receipt below records the earlier local media work, before this upload.
+
+**Owner report, 22 October:** the final video/signed-out playback review is okay.
+This records human approval, not a new automated video check, competent-speaker
+certification or Devpost submission receipt.
+
+**Confirmed gallery refresh, 22 October:** five older Devpost gallery entries were
+replaced with unchanged real browser captures from the current Kaela build. All
+contain synthetic material. Their files, in saved gallery order, are:
+
+1. `data/release-2026-10-22/kaela-day.png`: fictional day, Japanese optional.
+2. `data/submission-2026-10-21/kaela-manga/captures/reader.png`: focused Markdown
+   reader with synthetic research-methods notes and original source preserved.
+3. `data/release-2026-10-22/optional-card.png`: separate opt-in phrase card,
+   pronunciation visible and explicit capture.
+4. `data/submission-2026-10-22/kaela-from-scratch/captures/review-meaning.png`:
+   explicitly saved example phrase, meaning revealed and rating controls.
+5. `data/release-2026-10-22/mcp-proof.png`: real local protocol trace and persisted
+   review, explicitly captioned as web MCP rather than an Alexa+ device session.
+
+Each file was visually inspected and below the form's 5 MB limit. The new images
+were saved before removing the superseded entries; original local media is retained.
+The saved editor re-read confirmed five matching captions and the intended order.
+The preview contains the same five image links/captions plus the existing video.
+Owner-local proof: `data/release-2026-10-22/devpost-gallery-saved.jpg`. This is
+publication evidence for existing captures, not a fresh runtime/device evaluation.
+No code, account access, eligibility answers or final submission changed.
+
 ## Current female-voice Kaela film — 22 October 2026
 
 **Accepted decision:** the owner requested a female voice because Kaela tells

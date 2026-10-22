@@ -4,10 +4,10 @@ For the current milestone, source-workspace checks and handoff, read
 [project state](project-state.md). This page owns the release/owner checklist and
 dated release receipts; those receipts are not automatically refreshed by new code.
 
-**Local judging product: prepared and verified. Devpost entry: not yet ready to
-send.** The remaining account/publication steps are listed below, not hidden
-behind a claim of full production readiness. Draft fields are saved; no entry has
-been submitted.
+**Local judging product: prepared and verified. Owner video and eligibility reviews:
+reported okay. Final Devpost submission remains separate.** The authorized
+documentation push is the current task, not a production-readiness certification.
+Draft fields are saved; no final submission is claimed.
 
 ## Current preflight — 22 October
 
@@ -20,8 +20,33 @@ GitLab `origin/main`; clean GitHub refresh
 **`83e5ca75c7b2c146ec0bbf9cf7d5e07fd84e2775`** was pushed to judging `main`.
 [That exact CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/39691282144).
 All 118 release files matched the tested provider-free package, with no extra
-tracked files. Subsequent receipt commits are documentation-only. Local Devpost
-copy was updated; remote draft fields/screenshots were not changed for Kaela.
+tracked files. Subsequent receipt commits are documentation-only.
+
+**Confirmed browser draft update, 22 October:** saved/re-read the revised pitch,
+Kaela story, neutral timetable caption and owner-provided
+[YouTube video](https://youtu.be/UNwvPkaCGCg). The project preview renders its
+thumbnail and the new copy, and still shows INCOMPLETE SUBMISSION. A separately
+authorized gallery refresh then replaced the five older entries with current
+synthetic app captures, ordered day/notes/Japanese/review/MCP proof. Saved captions
+and order were re-read; carousel image links/captions were checked in preview.
+Original capture files remain local; see [provenance](submission-demo.md).
+Additional-info answers, eligibility/terms and repository access were untouched.
+This browser receipt does not claim refreshed connector authentication or final
+submission. Local evidence is under `data/release-2026-10-22/`.
+
+**Subsequent additional-info and repository check, 22 October:** seven corrected
+text fields were saved and verified after reopening the form. Testing instructions
+now describe the public clone, focused notes reader and separate optional card;
+feedback describes English/Japanese scope and the final female narration/music,
+with ASK/calendar/weather explicitly historical. Other answers were preserved.
+GitHub confirmed the renamed `e-mric/alexa-chan` is public, has ISC detected, and
+retains judging HEAD `02e9ab07061ec395371ee027cefb606f707a429c` before this docs refresh.
+The owner subsequently reported deleting the old development repo and confirmed
+the video/signed-out playback and eligibility/terms reviews are okay. These are
+owner reports, not a new device, pronunciation or eligibility certification.
+The last browser observation remained DRAFT with final terms unchecked. The
+Devpost connector still requires reauthentication; no submit action is performed
+by this documentation push.
 
 Current owner-local video: **78-second female-voice Kaela manga story**. The central
 pitch is Alexa helping her day first, with Japanese inside that conversation only
@@ -32,8 +57,9 @@ The owner requested a female narrator: a single complete Jessica take now replac
 Koichi, with the same script/art/music and retimed scenes/captions. Earlier cuts
 remain preserved. No application listening defaults changed.
 [Media provenance and verification](submission-demo.md) identifies the current
-file and checks. Owner full watch/listen review, upload/public URL and repository
-access remain. No media was committed or uploaded.
+file and checks. The owner reports the video/playback review is okay and the
+judging source is now public. The owner performed the YouTube upload; no media was
+committed to Git by this draft update.
 The owner-local submission-named copy is
 `data/submission-2026-10-22/Alexa-chan-Devpost-Demo.mp4`, byte-identical to the
 female-voice export; this is not a public video URL.
@@ -111,12 +137,12 @@ and Submit was never clicked. This does not claim refreshed MCP credentials.
 
 ### Remaining before the entry is ready
 
-1. Review the saved fields and add the public video URL. The owner approved the no-boxes
-   proposal; the actual implementation uses CSS shading, not a flattened mockup.
-2. Owner reviews narration/video and clears art, then provides a public video URL.
-3. Owner grants required access to the private judging repo (or chooses a cleared
-   public licensed copy). No access settings will be changed by this refresh.
-4. Owner reviews all fields and decides when to submit. **Do not submit in this task.**
+1. Complete the authorized documentation commit/push and clean GitHub refresh,
+   then verify the exact destination revision and CI.
+2. Video/playback and eligibility/terms review are owner-confirmed okay. The code
+   is public with ISC detected; no private reviewer invitation is needed for access.
+3. Final Devpost submission and receipt remain separate. **Do not submit or accept
+   final terms in this documentation task.**
 
 ### Local visual revision — 12 October
 
@@ -146,12 +172,13 @@ and copy do not mention the parked external programme. Personal student notes
 use a new isolated browser key; existing private pilot contents remain untouched.
 The useful day/notes → optional Japanese → explicit save → recall loop is the scope.
 
-The clean judging repository is [e-mric/alexa-chan-submission](https://github.com/e-mric/alexa-chan-submission),
-private pending owner review/access decisions. It starts a fresh distribution
+The clean judging repository is now public at
+[e-mric/alexa-chan](https://github.com/e-mric/alexa-chan), with ISC detected.
+It starts a fresh distribution
 history with **no ElevenLabs recordings**, private notes, calendar snapshot,
-credentials, runtime stores or archived programme documents. The separate private
-[owner source copy](https://github.com/e-mric/alexa-chan) retains development material.
-Do not give reviewers that full copy while its recording entitlement is unverified.
+credentials, runtime stores or archived programme documents. The owner reports
+deleting the older GitHub development copy. Development history remains on GitLab
+`origin`; do not replace the clean judging tree with the full private workspace.
 
 `node scripts/prepare-judge-release.cjs` reproducibly copies an allowlisted source
 package into a new temporary directory, omitting provider audio and replacing
@@ -196,9 +223,10 @@ The source checkout was committed locally using a Git implementation that does
 not require Xcode. At that release, native Git was blocked by an unaccepted Xcode
 licence, and no reusable GitLab credential was available. That historical blocker
 is resolved: source `a4f4205` was pushed to GitLab on 21 October. No licence
-agreement was accepted on the owner's behalf. Both private
-GitHub destinations are maintained separately; the judging copy omits provider
-audio and private data. Verify their automated checks before sharing.
+agreement was accepted on the owner's behalf. The now-public GitHub judging copy
+has separate snapshot history and omits provider audio and private data. The old
+GitHub development copy was deleted by the owner; source `origin` is still GitLab.
+Verify the judging copy's exact automated checks before final submission.
 
 The first clean distribution commit was `288f912ff6abe3e58046b73f03ee5870d5d21791`;
 [its Linux CI passed](https://github.com/e-mric/alexa-chan-submission/actions/runs/38184555551),
@@ -242,21 +270,17 @@ not import them or expose `/alexa`. `npm start` launches MCP; do not expose
 
 ## Owner steps before submitting
 
-1. Watch the student demo, approve the English write-up/feedback and confirm
-   generated-art usage entitlement. Upload the approved video to YouTube/Vimeo
-   and test unauthenticated playback. No public video URL exists yet.
-2. Authorize/verify reviewer access to the clean GitHub repository or make a
-   cleared source copy public. Rules name `chris-trag`, `knmeiss`, `giolaq`,
-   `anishamalde`, `mosesroth`, `emersonsklar` and `testing@devpost.com`.
-   Private invitations expire in seven days: issue near submission, not now.
-   No invitations or visibility change were performed.
-3. Review the browser-saved Devpost draft, personal/team eligibility and actual
-   URLs. The owner completed sign-in on 20 October and draft fields were saved;
-   the public video URL and final personal attestations remain owner steps.
-4. Review the final entry and explicitly authorize submission; verify its receipt.
+1. Owner video/playback and personal eligibility/terms reviews are reported okay
+   on 22 October. Media provenance and the limited verification scope remain
+   documented; approval is not an independent legal or pronunciation assessment.
+2. Code access is public at `e-mric/alexa-chan`, with an ISC license detected.
+   No invitations or visibility changes are performed by this Git task.
+3. Finish the authorized docs push/clean judging refresh and check its CI.
+4. Final submission requires its own action and verified receipt. Saving the
+   current draft or approving this Git push is not a submission receipt.
 
 The earlier connected overview returned an internal error; on 20 October the
 connector required reauthentication. Neither registration nor submission was fabricated.
-Aim to finish the owner steps by 21 October and retain a deadline buffer.
+The owner is handling the final submission decision; retain a deadline buffer.
 
 **Official Devpost pages prevail over this helper if requirements change or differ.**

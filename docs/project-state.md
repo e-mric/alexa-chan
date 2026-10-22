@@ -26,7 +26,17 @@ The owner then separately requested the GitHub refresh recorded below.
 pitch/testing/media documentation, then refresh the clean GitHub judging copy.
 Do not stage the private workflow-state file, generated media or runtime stores.
 Reviewer access, visibility, video upload and final submission remain separate.
-The owner is handling the YouTube upload; no public URL has been provided yet.
+The owner uploaded the video and provided
+[the YouTube link](https://youtu.be/UNwvPkaCGCg). It is now saved in the Devpost
+draft. The owner subsequently confirmed the video/signed-out playback review
+and personal eligibility/terms review are okay; this is owner-reported evidence,
+not a new automated playback, pronunciation or eligibility assessment.
+
+**Latest owner instruction, 22 October:** commit/push the documentation and
+refresh the clean judging copy at `e-mric/alexa-chan`. The owner reports deleting
+the older GitHub development project and renaming the latest judging repository.
+Keep GitLab `origin` unchanged and the private workflow-state file uncommitted.
+This task does not perform final Devpost submission or accept terms for the owner.
 
 On 21 October the owner approved the generated notes-first reader/separate-card
 design, pronunciation visible by default, and contextual audio without a duplicate
@@ -230,7 +240,47 @@ The MCP voice lookup and speech/music generations worked.
 This does not retroactively clear older free-credit clips; those remain excluded
 from judging source. No subscription was bought or private notes uploaded.
 
-Devpost MCP returned **reauthentication required**; no stale connector retry was
+**22 October browser draft receipt:** the owner authorized updating the video,
+remaining Noor copy and central pitch. The signed-in browser saved and re-read
+the Alexa-chan-focused pitch, Kaela story, neutral timetable caption and
+[video URL](https://youtu.be/UNwvPkaCGCg). The project preview renders the new
+YouTube thumbnail and revised text, while still showing INCOMPLETE SUBMISSION.
+The initial text/video update left the older gallery files unchanged. The owner's
+subsequent **gallery refresh** replaced those five entries with genuine current
+Kaela-build captures in this order: fictional day → focused original notes →
+optional Japanese card → saved example review → real MCP request proof. All five
+were uploaded and saved before the older entries were removed. Captions/order
+were re-read in the saved editor; carousel links/captions were checked in preview.
+Original local capture files remain available for recovery. No private data,
+generated UI mockup or new device-test claim was uploaded. Additional-info answers,
+eligibility/terms, repository access and final submission were untouched. The
+connector was not retried or refreshed.
+Owner-local evidence: `data/release-2026-10-22/devpost-preview-saved.png` and
+`devpost-video-saved.png`; `devpost-gallery-saved.jpg` records the completed gallery.
+[Demo materials](submission-demo.md) records capture provenance. No runtime code
+changed and no new app/device test was performed for this gallery replacement.
+
+**22 October, additional-info refresh (confirmed):** the owner requested a fresh
+check and correction of the saved Devpost fields. GitHub resolves both the old
+judging URL and `e-mric/alexa-chan` to the renamed **public** repository, with ISC
+license detected and unchanged HEAD `02e9ab07061ec395371ee027cefb606f707a429c`.
+This was a read-only check, not an agent visibility change or rename. The owner
+had already corrected the repository and friction-log fields. The browser then
+saved seven text-field corrections: project-history wording, current public-clone
+and focused-reader/card instructions, four tool-feedback answers and AI-media
+disclosure. Feedback now describes the final 78-second female-narrated film and
+music, English/Japanese device speech, and explicitly separate historical
+ASK/calendar/weather experiments. All seven values matched after reopening the
+saved form; all other scalar answers matched the pre-edit values, including
+eligibility and Significant/Yes. Track and mini-challenge choices were preserved.
+The final terms remained unchecked and the project remained **DRAFT, 3/5 steps**;
+Submit was not clicked. Proof: `data/release-2026-10-22/devpost-additional-info-saved.jpg`.
+No runtime test, Git push, access change or final submission was performed. The
+linked GitHub feedback document retains its dated earlier observations; this
+receipt does not claim those repository contents were refreshed.
+
+**Earlier browser receipt, 20 October:** Devpost MCP returned
+**reauthentication required**; no stale connector retry was
 made. The owner completed browser sign-in. The existing **DRAFT** was inspected
 and its name, shōnen-style pitch, simplified student story, GitHub link, Alexa+
 track, no mini-challenges, testing instructions and five feedback answers saved.
@@ -250,13 +300,15 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. The verified Kaela runtime is pushed to both repositories, with exact GitHub CI
-   passing as recorded above. Keep the private workflow-state change uncommitted;
-   do not mistake the ignored local video for a public submission link.
-2. Review the new 78-second female-voice film, not the previous male-narrated cuts.
-   Owner: verify eligibility, approve the video/art and provide the public link/reviewer access.
-3. Owner: review saved draft fields, provide the public video URL and complete
-   personal eligibility/terms only when ready. Never click Submit in this task.
+1. Publish the scoped documentation refresh to GitLab and the renamed clean
+   GitHub copy; verify the exact remote revisions and CI. The runtime is unchanged.
+   Keep private workflow state and ignored media/runtime data out of both pushes.
+2. The owner confirms the final video/playback and eligibility/terms reviews are
+   okay. The clean judging repo is public at `e-mric/alexa-chan` with ISC detected.
+   These reviews do not establish a direct Alexa+ device test or pronunciation
+   certification. No new feature work is required for this documentation task.
+3. Final Devpost submission and its live receipt remain separate. The last browser
+   observation was DRAFT; never click Submit or accept terms in this Git task.
 4. Run a real seven-day notebook trial and competent-speaker review after this
    milestone. More integrations, native apps and messaging remain out of scope.
 

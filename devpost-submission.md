@@ -1,63 +1,90 @@
 # Alexa-chan — English submission draft
 
-Updated 20 October 2026. Draft only; owner review and the public video URL are
-required. Browser sign-in confirmed the existing DRAFT. Name, pitch, public story,
-source link, track and additional technical answers were saved without submitting.
-Fourteen technology tags, five captioned actual-app screenshots and the thumbnail
-were saved and verified. The public video URL and owner review remain.
+Updated 22 October 2026. Draft only; final submission remains separate. The signed-in
+browser saved and re-read the revised pitch, Kaela story, neutral timetable
+caption and video URL. The preview shows the new video/thumbnail and still says
+INCOMPLETE SUBMISSION. The separately authorized gallery refresh replaced all
+five older images with real current-build captures: Kaela's fictional day,
+focused notes, separate Japanese card, saved-phrase review and actual MCP proof.
+Captions and order were re-read after saving. Original capture files remain
+preserved locally. That gallery task did not change repository access,
+additional-info answers or eligibility/terms.
+
+The subsequent authorized additional-info refresh was saved and re-read: current
+public-repository cloning, focused notes/separate Japanese card instructions,
+English/Japanese scope, final 78-second female narration/music and explicitly
+historical prototype integrations. The owner had already corrected the code and
+friction-log URLs to `https://github.com/e-mric/alexa-chan`; a read-only GitHub check
+confirmed the renamed clean repository is public, with an ISC license detected.
+Eligibility, Significant/Yes, track and mini-challenge selections were preserved.
+Final terms remain unchecked; the project is still DRAFT, not submitted. No GitHub
+contents or local Git remotes were changed by this form update.
+
+The owner subsequently confirmed the final video/signed-out playback and personal
+eligibility/terms reviews are okay, and authorized this documentation push and
+clean GitHub refresh. This is owner-reported review, not a new agent assessment
+or evidence that the final submit action has occurred.
 
 ## Name and tagline
 
 Name: Alexa-chan
 
-Pitch: Your next chapter starts between classes. Take on your day, keep your notes,
-and discover Japanese along the way. One phrase at a time. 行きましょう! (Ikimashou!/Let's go!)
-
-The Japanese ending is the owner's subsequent edit in the saved Devpost pitch.
+Pitch: Take on your day with Alexa-chan. Make room for a little Japanese in the
+conversation, only when you want it. Your next chapter starts one phrase at a time.
 
 ## Public project story
 
-### Inspiration
+### Your day comes first
 
-You love the idea of learning Japanese. Finding time for another course? Not so easy.
+Kaela has classes to get to, a group project to prepare, and notes to reread. She is
+curious about Japanese, but she does not need another task on her list.
 
-Alexa-chan brings a little Japanese into something you already do: checking your
-day and rereading your study notes. Your day comes first. Learning is an invitation.
+Alexa-chan explores a simple idea: Alexa helps Kaela get through her day, and a
+little Japanese can join that conversation only when she wants it.
 
-### Meet Kaela
+### One small adventure
 
-Kaela is a university student with classes, a group project, and notes to go through.
-She opens Alexa-chan to see her day. Alongside the useful answer, she finds a short
-Japanese encouragement.
+Imagine Kaela asking, “Alexa-chan, what’s on my day?” She gets the useful answer
+first. Then, if she is curious, she can ask how to say that in Japanese.
 
-She can leave it there, listen to it, or get curious. **Iké** explains the meaning.
-**Motto** goes a little deeper. **Nanté** shows her how to ask the question in Japanese.
-If a phrase matters to her, she can save it and come back to it later.
+She can hear a phrase, discover its meaning, and choose to keep it for another day.
+Or she can move on. Nothing plays automatically, and exploring a phrase never
+silently adds it to her review cards.
 
-After class, Kaela keeps her own notes. Her words stay unchanged and private in her
-browser. A Japanese phrase is there if she wants it, never a compulsory lesson.
+The manga-inspired city and motorcycle ride give this everyday journey a sense of
+adventure. Kaela is the example character. Alexa-chan is the companion at the
+centre of the idea.
 
-### A small adventure between classes
+### Her notes stay hers
 
-A red motorcycle, a city ahead, and Mount Fuji on the horizon. The shōnen-inspired
-ride gives everyday student life a sense of adventure. Prefer somewhere quiet to
-read? Switch to the simple notebook view.
+After class, Kaela rereads her notes on a quiet, separate screen. The app never
+rewrites what she wrote. Her original text and Markdown stay in her browser, and
+she can back them up.
 
-There is no streak to protect and no lesson blocking your notes. You choose what
-to explore and what to keep.
+An optional Japanese card waits separately, without interrupting a long note. She
+chooses whether to open it, listen, or save the phrase.
+
+### What works today
+
+The working web demo includes a fictional university day, original study notes,
+listening, explicit phrase saving, and later review. A self-hosted MCP server
+powers the example-day tools and saved example cards.
+
+The video distinguishes the imagined Alexa conversation from the working web app.
+This prototype is not connected to a live university calendar or directly to an
+Alexa+ device.
 
 ### What we built and learned
 
-We built a working web app with an example day, personal notebooks, listening,
-phrase saving, and later review. The hardest part was keeping it useful without
-turning every visit into a language exercise.
+We built the web experience with SvelteKit, a Three.js ride, and a Node.js MCP
+service. Codex helped with implementation and testing; generated manga artwork
+and ElevenLabs narration bring Kaela’s story to life.
 
-The demo timetable is fictional. It uses a real local MCP connection for the Alexa+
-track, but does not connect to a live university calendar or an Alexa+ device.
+The biggest challenge was keeping Japanese optional. A useful day and readable
+notes must come first. Next, we want real student trials and a competent Japanese
+speaker to review the phrases.
 
-Next, we want students to try it in their own routines and a competent Japanese
-speaker to review the phrases. The goal is simple: enjoy your day, and perhaps
-take a little Japanese with you.
+Your day. Your pace. A little Japanese along the way.
 
 ## Technical and judge reference
 
@@ -147,13 +174,17 @@ The four personas are simulations, not interviews or proof of learning effective
 
 ## Testing instructions
 
+Clone the public [judging repository](https://github.com/e-mric/alexa-chan).
 Use Node.js 24 LTS: `npm ci`, `npm --prefix web ci`, `npm run build`, `npm start`.
 Open http://127.0.0.1:3001/student-mcp. Connect, inspect today's example classes,
 try a helper/question, keep a phrase, reveal/rate it and reconnect after reload.
 Expand Connection proof. No external account keys are needed.
 
 For private notebooks, open `/student`, create a titled dated
-notebook, paste synthetic notes and save. Explore Japanese optionally. Keep the
+notebook, paste synthetic notes and save. Open the focused reader and compare
+Formatted / Original text. Japanese opens on a separate optional card with
+pronunciation visible by default; return to the note without losing your place.
+Personal notes/review stay separate from server example profiles. Keep the
 same origin for stored data; export a backup before switching devices. Device
 audio depends on installed voices. See `docs/mcp-judge-trial.md`.
 
@@ -165,8 +196,12 @@ ElevenLabs supplied the separate video narration, not recordings bundled in the 
 
 ## Required links and feedback
 
-- Source: verify the clean GitHub distribution and reviewer access before submission.
-- Public English YouTube/Vimeo demo: owner-reviewed upload pending; no URL claimed.
+- Source: public [clean GitHub distribution](https://github.com/e-mric/alexa-chan),
+  with an ISC license detected by GitHub on 22 October.
+- English demo: [Kaela’s Next Chapter](https://youtu.be/UNwvPkaCGCg), supplied by
+  the owner and saved in Devpost. Embedded thumbnail verified; signed-out full
+  playback was not independently verified by the agent. The owner subsequently
+  confirmed the video/playback review is okay.
 - Tool/API feedback: `docs/product-feedback.md`.
 - Test evidence and release checklist: `docs/persona-validation.md`, `docs/submission-readiness.md`.
 - Actual captured demo: `docs/submission-demo.md`.
