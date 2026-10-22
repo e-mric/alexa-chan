@@ -87,6 +87,21 @@ the video voice, not the app's listening defaults or recording catalogue.
 
 ## Verification and audit
 
+**22 October, final documentation publication (confirmed):** the five-file docs
+refresh was pushed to GitLab `origin/main` as
+`b683756fdd7c4d65ead34dd7dbc161a5d3eca704` and the public clean GitHub `main` as
+`1a3a06ddadaf083c8bfb99b1e78cec89e3e9c797`.
+[That exact GitHub CI passed](https://github.com/e-mric/alexa-chan/actions/runs/39768605774).
+Fresh root/web installs and `npm run verify` on the clean judging clone passed:
+80 tests, four intentional recording skips, zero Svelte diagnostics, successful
+build and clean production-runtime/full-web audits. The existing full/dev legacy
+ASK advisories and build warnings remain. The generated 118-file allowlist and
+judging tree differed only in these five docs; no runtime or assets changed.
+Documentation checks passed in source and judging copy. The private workflow
+state remains uncommitted; no media, provider recordings or runtime data were added.
+This receipt is a docs-only follow-up, not a new browser/device test or Devpost
+submission. Subsequent receipt commits do not change the verified runtime.
+
 **22 October publication receipt:** source checkpoint
 **`ffd9e1bd871b3d4dd77b5e6134f79c4753d65a57`** was pushed to GitLab `origin/main`.
 The clean 118-file judging refresh was pushed to GitHub `main` as
@@ -300,9 +315,9 @@ official links, repository/access decisions and remaining owner steps.
 
 ## Next steps
 
-1. Publish the scoped documentation refresh to GitLab and the renamed clean
-   GitHub copy; verify the exact remote revisions and CI. The runtime is unchanged.
-   Keep private workflow state and ignored media/runtime data out of both pushes.
+1. The documentation refresh is published to GitLab and the renamed public
+   GitHub judging copy, with passing exact CI as recorded above. Keep private
+   workflow state uncommitted and ignored media/runtime data outside both repos.
 2. The owner confirms the final video/playback and eligibility/terms reviews are
    okay. The clean judging repo is public at `e-mric/alexa-chan` with ISC detected.
    These reviews do not establish a direct Alexa+ device test or pronunciation

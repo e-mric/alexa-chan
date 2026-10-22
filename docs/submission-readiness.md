@@ -11,6 +11,16 @@ Draft fields are saved; no final submission is claimed.
 
 ## Current preflight — 22 October
 
+**Confirmed documentation publication:** source
+`b683756fdd7c4d65ead34dd7dbc161a5d3eca704` was pushed to GitLab; the corresponding
+five-document clean refresh is GitHub
+`1a3a06ddadaf083c8bfb99b1e78cec89e3e9c797` at the renamed public `e-mric/alexa-chan`.
+[Its exact CI passed](https://github.com/e-mric/alexa-chan/actions/runs/39768605774).
+Fresh installs and local judging `npm run verify` passed (80 tests, four expected
+recording skips, zero Svelte diagnostics, build and clean runtime/web audits).
+Only docs changed; the 118-file release excludes private state/data and provider
+recordings. The following receipt-only update does not alter that runtime.
+
 **22 October verified release:** primary student renamed to **Kaela**, with a rendered
 regression test and unchanged storage. Source `npm run verify` rerun: **84 passed**;
 fresh provider-free copy: **80 passed + four intentional recording skips**,
@@ -137,8 +147,8 @@ and Submit was never clicked. This does not claim refreshed MCP credentials.
 
 ### Remaining before the entry is ready
 
-1. Complete the authorized documentation commit/push and clean GitHub refresh,
-   then verify the exact destination revision and CI.
+1. Documentation commit/push and the renamed clean GitHub refresh are complete;
+   exact CI and local clean-copy verification passed as recorded above.
 2. Video/playback and eligibility/terms review are owner-confirmed okay. The code
    is public with ISC detected; no private reviewer invitation is needed for access.
 3. Final Devpost submission and receipt remain separate. **Do not submit or accept
@@ -275,7 +285,8 @@ not import them or expose `/alexa`. `npm start` launches MCP; do not expose
    documented; approval is not an independent legal or pronunciation assessment.
 2. Code access is public at `e-mric/alexa-chan`, with an ISC license detected.
    No invitations or visibility changes are performed by this Git task.
-3. Finish the authorized docs push/clean judging refresh and check its CI.
+3. Documentation publication and exact GitHub CI are confirmed above; private
+   workflow state and local media remain excluded.
 4. Final submission requires its own action and verified receipt. Saving the
    current draft or approving this Git push is not a submission receipt.
 
